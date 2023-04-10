@@ -97,6 +97,7 @@ public class StoreMain {
                 break;
 
             case "2":
+                ㅇㅇㅇ
                 break;
 
             case "3":
