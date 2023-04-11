@@ -16,7 +16,7 @@ public class Item {
     // 생성자 ========================================
     public Item() {
         Liquor liquorList = new Liquor();
-        Drink drinkList = new Drink();
+        Drink drinkList/* = new Drink()*/;
         Snack snackList = new Snack();
         Smoke smokeList = new Smoke();
         CupNoodle cupNoodleList = new CupNoodle();

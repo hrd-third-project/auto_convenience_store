@@ -5,10 +5,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Drink extends Item {
-    private List<Drink> drinkList;
+    private static List<Drink> drinkList;
 
 
-    public Drink(){
+
+    /*public Drink()*/ static {
 
         drinkList = new ArrayList<>(Arrays.asList(
         new Drink("코카콜라", 1500, 10),
@@ -21,6 +22,11 @@ public class Drink extends Item {
 
     public Drink(String itemName,int price, int num){
     super(itemName, price, num);
+    }
+
+
+    public static List<Drink> getDrinkList() {
+        return drinkList;
     }
 }
 
