@@ -2,7 +2,7 @@ package item;
 
 public class ItemChoiceRepository {
 
-    private L
+    private
     public ItemChoiceRepository() {
     }
 
