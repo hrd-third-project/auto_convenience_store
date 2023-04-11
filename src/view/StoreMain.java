@@ -2,17 +2,20 @@ package view;
 
 import customer.Customer;
 import customer.CustomerRepository;
+import manage.ManagerViewer;
 
 import static utility.Utility.*;
+import static view.CartViewer.*;
 
 public class StoreMain {
 
     // 필드 =============================
-    private CustomerRepository repository;
-
+    private CustomerRepository cr;
+    private ManagerViewer mv;
 
     public StoreMain() {
-        repository = new CustomerRepository();
+        cr = new CustomerRepository();
+        mv = new ManagerViewer();
     }
 
     // 메서드 =============================
@@ -20,9 +23,7 @@ public class StoreMain {
 
         System.out.println("\n\n 무인 편의점에 오신 것을 환영합니다!");
 
-        selectWho(); // 고객 / 관리자 입장
-
-
+            selectWho(); // 고객 / 관리자 입장
 
     }
 
@@ -36,11 +37,11 @@ public class StoreMain {
         switch (menuNum) {
             case "1":
                 customerView();
-                customerScreen(); // 고객 화면
+                customerScreen(); // 고객 정보 입력화면
                 selectCustomerMenu(); // 고객 메뉴 선택
                 break;
             case "2":
-//                    managerMenu();
+                    mv.managerLogin();
                 break;
             default:
                 System.out.println("메뉴 번호를 다시 입력해주세요.");
@@ -50,13 +51,14 @@ public class StoreMain {
 
     }
 
+
     // 고객 정보 입력하기
     private void customerView() {
 
-        System.out.println("\n영합니다!");
+        System.out.println("\n환영합니다!");
         System.out.println("회원님의 신분증 정보를 입력해주세요!");
         String name = input(" - 이      름: ");
-        int birth = Integer.parseInt(input(" - 생년월일(6자리): "));
+        int age = Integer.parseInt(input(" - 나      이: "));
         System.out.println(" - 연락처는 - 없이 정확히 입력해주세요!");
         int phoneNumber = Integer.parseInt(input("    >> "));
 
@@ -65,20 +67,18 @@ public class StoreMain {
 
         Customer customer = new Customer();
         customer.setName(name);
-        customer.setBirth(birth);
+        customer.setAge(age);
         customer.setPhoneNumber(phoneNumber);
 
-        repository.register(customer);
+        cr.register(customer);
     }
 
 
     // 고객 메뉴
     private void customerScreen() {
-        System.out.println(" # 1. 마이페이지");
-        System.out.println(" # 2. 장바구니 목록 조회하기");
-        System.out.println(" # 1. 마이페이지");
-        System.out.println(" # 1. 마이페이지");
-        System.out.println(" # 1. 마이페이지");
+        System.out.println(" # 1. 상품선택");
+        System.out.println(" # 2. 장바구니");
+        System.out.println(" # 3. 결제하기");
     }
 
 
@@ -87,24 +87,16 @@ public class StoreMain {
 
         switch (menuNum) {
             case "1":
-                // 마이페이지: 가입한 회원정보 출력
-                Customer user = repository.findCustomer();
-                System.out.println("\n ********* 회원님 정보 ********");
-                System.out.println("# 회원명: " + user.getName());
-                System.out.println("# 생년월일: " + user.getBirth());
-                System.out.println("# 연락처: " + user.getPhoneNumber());
-                System.out.println("# 보유금액: " + user.getMoney());
+
                 break;
 
             case "2":
-                ㅇㅇㅇ
+                myCart();
                 break;
 
             case "3":
                 break;
 
-            case "4":
-                break;
             default:
                 break;
 
