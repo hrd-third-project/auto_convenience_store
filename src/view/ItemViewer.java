@@ -1,5 +1,6 @@
 package view;
 
+import item.Drink;
 import item.Item;
 import item.ItemController;
 import utility.Utility;
@@ -9,6 +10,7 @@ import static utility.Utility.*;
 public class ItemViewer {
 
     private static ItemController ic;
+//    private Drink drinkList;
 
 
     public static void showItems() {
@@ -18,7 +20,7 @@ public class ItemViewer {
         String menuNum = input(" >> ");
         switch (menuNum) {
             case "1":
-                ItemController.showSnacks();
+                ItemController.showSnacks(Drink.getDrinkList());
 
                 break;
             case "2":

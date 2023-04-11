@@ -10,13 +10,15 @@ public class ItemController {
    public Drink drinkList;
 
 
-    public static void showSnacks(List<>) {
+    public static void showSnacks(/*List<Drink> drinkList*/) {
 
-
+        for (Drink drink : Drink.getDrinkList()) {
+            System.out.println("drink = " + drink);
+        }
+        
 
 
 
     }
-
 
 }
