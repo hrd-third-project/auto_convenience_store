@@ -4,7 +4,7 @@ public class Customer {
 
     // 필드 ========================================
     private String name;
-    private int birth;
+    private int age;
     private int phoneNumber;
     private int money;
 
@@ -13,9 +13,9 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(String name, int birth, int phoneNumber, int money) {
+    public Customer(String name, int age, int phoneNumber, int money) {
         this.name = name;
-        this.birth = birth;
+        this.age = age;
         this.phoneNumber = phoneNumber;
         this.money = money;
     }
@@ -29,12 +29,12 @@ public class Customer {
         this.name = name;
     }
 
-    public int getBirth() {
-        return birth;
+    public int getAge() {
+        return age;
     }
 
-    public void setBirth(int birth) {
-        this.birth = birth;
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public int getPhoneNumber() {
@@ -58,7 +58,7 @@ public class Customer {
     public String toString() {
         return "Customer{" +
                 "name='" + name + '\'' +
-                ", birth=" + birth +
+                ", birth=" + age +
                 ", phoneNumber=" + phoneNumber +
                 ", money=" + money +
                 '}';
