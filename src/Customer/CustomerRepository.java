@@ -23,6 +23,10 @@ public class CustomerRepository {
     }
 
 
-
-
+    @Override
+    public String toString() {
+        return "CustomerRepository{" +
+                "customer=" + customer +
+                '}';
+    }
 }
