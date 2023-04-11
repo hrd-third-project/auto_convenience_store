@@ -1,4 +1,4 @@
-package Item;
+package item;
 
 public class Snack extends Item {
 

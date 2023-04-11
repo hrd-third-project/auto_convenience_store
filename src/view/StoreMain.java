@@ -1,19 +1,20 @@
 package view;
 
-import Customer.Customer;
-import Utility.Utility;
-import Customer.CustomerRepository;
+import customer.Customer;
+import customer.CustomerRepository;
+import manage.ManagerViewer;
 
-import static Utility.Utility.*;
+import static utility.Utility.*;
 
 public class StoreMain {
 
     // 필드 =============================
     private CustomerRepository repository;
-
+    private ManagerViewer mv;
 
     public StoreMain() {
         repository = new CustomerRepository();
+        mv = new ManagerViewer();
     }
 
     // 메서드 =============================
@@ -21,10 +22,7 @@ public class StoreMain {
 
         System.out.println("\n\n 무인 편의점에 오신 것을 환영합니다!");
 
-        selectWho(); // 고객 / 관리자 입장
-        customerScreen(); // 고객 화면
-        selectCustomerMenu(); // 고객 메뉴 선택
-
+            selectWho(); // 고객 / 관리자 입장
 
     }
 
@@ -38,9 +36,11 @@ public class StoreMain {
         switch (menuNum) {
             case "1":
                 customerView();
+                customerScreen(); // 고객 정보 입력화면
+                selectCustomerMenu(); // 고객 메뉴 선택
                 break;
             case "2":
-//                    managerMenu();
+                    mv.managerLogin();
                 break;
             default:
                 System.out.println("메뉴 번호를 다시 입력해주세요.");
@@ -50,10 +50,11 @@ public class StoreMain {
 
     }
 
+
     // 고객 정보 입력하기
     private void customerView() {
 
-        System.out.println("\n영합니다!");
+        System.out.println("\n환영합니다!");
         System.out.println("회원님의 신분증 정보를 입력해주세요!");
         String name = input(" - 이      름: ");
         int birth = Integer.parseInt(input(" - 생년월일(6자리): "));
@@ -97,7 +98,7 @@ public class StoreMain {
                 break;
 
             case "2":
-                ㅇㅇㅇ
+
                 break;
 
             case "3":
