@@ -7,12 +7,12 @@ import java.util.List;
 
 public class ItemController {
 
-   public Drink drinkList;
+//   public Drink drinkList;
 
 
-    public static void showSnacks(/*List<Drink> drinkList*/) {
-
-        for (Drink drink : Drink.getDrinkList()) {
+    public static void showDrink() {
+        List<Drink> drinkList = Drink.getDrinkList();
+        for (Drink drink : drinkList) {
             System.out.println("drink = " + drink);
         }
         

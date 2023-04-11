@@ -14,13 +14,7 @@ public class Item {
 
 
     // 생성자 ========================================
-    public Item() {
-        Liquor liquorList = new Liquor();
-        Drink drinkList/* = new Drink()*/;
-        Snack snackList = new Snack();
-        Smoke smokeList = new Smoke();
-        CupNoodle cupNoodleList = new CupNoodle();
-    }
+    public Item() {}
 
     public Item(String itemName, int price, int num) {
         this.itemName = itemName;
@@ -54,7 +48,6 @@ public class Item {
         this.num = num;
     }
 
-    //
 
 
     @Override
