@@ -1,4 +1,4 @@
-package Customer;
+package customer;
 
 public class CustomerRepository {
 
@@ -23,6 +23,10 @@ public class CustomerRepository {
     }
 
 
-
-
+    @Override
+    public String toString() {
+        return "CustomerRepository{" +
+                "customer=" + customer +
+                '}';
+    }
 }

@@ -1,10 +1,9 @@
 package view;
 
-import Customer.Customer;
-import Utility.Utility;
-import Customer.CustomerRepository;
+import customer.Customer;
+import customer.CustomerRepository;
 
-import static Utility.Utility.*;
+import static utility.Utility.*;
 
 public class StoreMain {
 
@@ -22,8 +21,7 @@ public class StoreMain {
         System.out.println("\n\n 무인 편의점에 오신 것을 환영합니다!");
 
         selectWho(); // 고객 / 관리자 입장
-        customerScreen(); // 고객 화면
-        selectCustomerMenu(); // 고객 메뉴 선택
+
 
 
     }
@@ -38,6 +36,8 @@ public class StoreMain {
         switch (menuNum) {
             case "1":
                 customerView();
+                customerScreen(); // 고객 화면
+                selectCustomerMenu(); // 고객 메뉴 선택
                 break;
             case "2":
 //                    managerMenu();
