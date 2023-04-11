@@ -1,5 +1,9 @@
 package item;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Item {
 
 
@@ -7,11 +11,14 @@ public class Item {
     // 필드 ========================================
     private String itemName; // 품목명
     private int price; // 가격
-
     private int num; //재고
 
     // 생성자 ========================================
     public Item() {
+        List<Item> items = new ArrayList<>(Arrays.asList(
+
+
+        ));
     }
 
     public Item(String itemName, int price,int num) {

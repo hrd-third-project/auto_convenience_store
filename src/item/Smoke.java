@@ -1,11 +1,25 @@
 package item;
 
-public class Smoke extends Item{
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-    public Smoke(){
+public class Smoke extends Item {
 
+    List<Smoke> smokeList;
+
+    public Smoke() {
+
+        smokeList = new ArrayList<>(Arrays.asList(
+                new Smoke("말보르", 4500, 10),
+                new Smoke("에쎄체인지", 4500, 10),
+                new Smoke("더원", 4500, 10),
+                new Smoke("던힐", 4500, 10),
+                new Smoke("한라산", 4500, 10)
+        ));
     }
-    public Smoke(String itemName,int price, int num){
+
+    public Smoke(String itemName, int price, int num) {
 
     }
 }
