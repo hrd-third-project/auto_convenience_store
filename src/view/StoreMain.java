@@ -4,8 +4,10 @@ import customer.Customer;
 import customer.CustomerRepository;
 import manage.ManagerViewer;
 
+import static item.ItemController.*;
 import static utility.Utility.*;
 import static view.CartViewer.*;
+import static view.ItemViewer.*;
 
 public class StoreMain {
 
@@ -87,7 +89,7 @@ public class StoreMain {
 
         switch (menuNum) {
             case "1":
-
+                showItems();
                 break;
 
             case "2":

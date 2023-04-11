@@ -7,24 +7,25 @@ import java.util.List;
 public class Item {
 
 
-
     // 필드 ========================================
     private String itemName; // 품목명
     private int price; // 가격
     private int num; //재고
 
+
     // 생성자 ========================================
     public Item() {
-        List<Item> items = new ArrayList<>(Arrays.asList(
-
-
-        ));
+        Liquor liquorList = new Liquor();
+        Drink drinkList = new Drink();
+        Snack snackList = new Snack();
+        Smoke smokeList = new Smoke();
+        CupNoodle cupNoodleList = new CupNoodle();
     }
 
-    public Item(String itemName, int price,int num) {
+    public Item(String itemName, int price, int num) {
         this.itemName = itemName;
         this.price = price;
-        this.num=num;
+        this.num = num;
     }
 
     // Getter, Setter ========================================
