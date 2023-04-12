@@ -37,11 +37,11 @@ public class Liquor extends Item {
         Liquor.liquorList = liquorList;
     }
 
-    @Override
-    public String toString() {
-        return super.toString() +"\t\t\t"+
-                " * 나이제한: " + accessAge + "이상 구매가능";
-    }
+//    @Override
+//    public String toString() {
+//        return super.toString() +"\t\t\t"+
+//                " * 나이제한: " + accessAge + "이상 구매가능";
+//    }
 
     public static List<Liquor> getLiquorList() {
         return liquorList;
