@@ -27,12 +27,13 @@ public class ItemController {
         System.out.println("담을 품목 이름을 입력하세요.");
         System.out.println("뒤로가시려면 '0'을 눌러주세요.");
         String inputItem = input(">> ");
-        if(!inputItem.equals("0")) {
+        if (!inputItem.equals("0")) {
             for (Snack snack : snackList) {
 
                 if (inputItem.equals(snack.getItemName())) {
                     CartController.getCartList().add(snack);
                     System.out.println(snack.getItemName() + "을 장바구니에 담았습니다.");
+                    snack.setNum(snack.getNum() - 1);
                 }
             }
         }
@@ -49,16 +50,16 @@ public class ItemController {
         System.out.println("담을 품목 이름을 입력하세요.");
         System.out.println("뒤로가시려면 '0'을 눌러주세요.");
         String inputItem = input(">> ");
-        if(!inputItem.equals("0")) {
+        if (!inputItem.equals("0")) {
             for (Drink drink : drinkList) {
 
                 if (inputItem.equals(drink.getItemName())) {
                     CartController.getCartList().add(drink);
                     System.out.println(drink.getItemName() + "을 장바구니에 담았습니다.");
+                    drink.setNum(drink.getNum() - 1);
                 }
             }
         }
-
 
 
     }
@@ -72,16 +73,16 @@ public class ItemController {
         System.out.println("담을 품목 이름을 입력하세요.");
         System.out.println("뒤로가시려면 '0'을 눌러주세요.");
         String inputItem = input(">> ");
-        if(!inputItem.equals("0")) {
+        if (!inputItem.equals("0")) {
             for (CupNoodle noodle : cupNoodle) {
 
                 if (inputItem.equals(noodle.getItemName())) {
                     CartController.getCartList().add(noodle);
                     System.out.println(noodle.getItemName() + "을 장바구니에 담았습니다.");
+                    noodle.setNum(noodle.getNum() - 1);
                 }
             }
         }
-
 
 
     }
@@ -97,18 +98,16 @@ public class ItemController {
         System.out.println("담을 품목 이름을 입력하세요.");
         System.out.println("뒤로가시려면 '0'을 눌러주세요.");
         String inputItem = input(">> ");
-        if(!inputItem.equals("0")) {
+        if (!inputItem.equals("0")) {
             for (Liquor liquor : liquorList) {
 
                 if (inputItem.equals(liquor.getItemName())) {
                     CartController.getCartList().add(liquor);
                     System.out.println(liquor.getItemName() + "을 장바구니에 담았습니다.");
                     liquor.setNum(liquor.getNum() - 1);
-                    System.out.println(liquor.getNum());
                 }
             }
         }
-
 
 
     }
@@ -119,34 +118,35 @@ public class ItemController {
         for (Smoke smoke : smokeList) {
             System.out.println(smoke);
         }
-        
-         System.out.println("담을 품목 이름을 입력하세요.");
+
+        System.out.println("담을 품목 이름을 입력하세요.");
         System.out.println("뒤로가시려면 '0'을 눌러주세요.");
         String inputItem = input(">> ");
-        if(!inputItem.equals("0")) {
+        if (!inputItem.equals("0")) {
             for (Smoke smoke : smokeList) {
 
                 if (inputItem.equals(smoke.getItemName())) {
                     CartController.getCartList().add(smoke);
                     System.out.println(smoke.getItemName() + "을 장바구니에 담았습니다.");
+                    smoke.setNum(smoke.getNum() - 1);
                 }
             }
         }
 
-    
+
     }
 
     /**
      * 고객의 나이를 검증하는 메서드
+     *
      * @return 고객나이가 19세 이상이면 true
      */
     public static boolean isAllow(Customer customer) {
         return customer.getAge() >= 19;
-        }
-
-        
-
     }
 
 
 }
+
+
+
