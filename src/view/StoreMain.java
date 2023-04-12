@@ -3,6 +3,7 @@ package view;
 import customer.Customer;
 import customer.CustomerController;
 import manage.ManagerViewer;
+import payment.Payment;
 import utility.Utility;
 
 import static utility.Utility.*;
@@ -79,7 +80,7 @@ public class StoreMain {
     }
 
 
-    private static void selectCustomerMenu() { // 고객 메뉴 선택 메서드
+    public static void selectCustomerMenu() { // 고객 메뉴 선택 메서드
 
         while (true) {
             System.out.println("\n┌────── ★무인편의점★ ──────┐ ");
@@ -99,6 +100,7 @@ public class StoreMain {
                     break;
 
                 case "3":
+                    Payment.payCheck();
                     // 3. 결제하기
                     return;
 //                    break;
