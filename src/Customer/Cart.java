@@ -7,8 +7,8 @@ import item.Item;
 public class Cart {
 
     // 필드 ========================================
-    private int count; // 제품의 수량
-    private int total; // 장바구니 총 금액
+    private int count = 0; // 제품의 수량
+    private static int total; // 장바구니 총 금액
     Item item;         // 아이템
 
 
@@ -16,9 +16,8 @@ public class Cart {
     public Cart() {
     }
 
-    public Cart(Item item, int count) {
+    public Cart(Item item) {
         this.item = item;
-        this.count = count;
         this.total = item.getPrice() * count; // 합계 = 아이템 가격 * 수량
     }
 
@@ -32,7 +31,7 @@ public class Cart {
         this.count = count;
     }
 
-    public int getTotal() {
+    public static int getTotal() {
         return total;
     }
 
@@ -51,8 +50,6 @@ public class Cart {
 
     @Override
     public String toString() {
-        return "[" +
-                item + count + total +
-                "]";
+        return "[" + item + count + total + "]";
     }
 }

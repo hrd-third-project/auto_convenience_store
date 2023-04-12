@@ -1,6 +1,11 @@
 package run;
 
+import item.Snack;
+import view.CartViewer;
+import view.ItemViewer;
 import view.StoreMain;
+
+import java.util.List;
 
 public class Main {
 
@@ -8,6 +13,12 @@ public class Main {
 
         StoreMain storeMain = new StoreMain();
         storeMain.start();
+
+//        ItemViewer.showItems();
+//        Snack.getSnackList();
+//        CartViewer.myCart();
+
+
 
     }
 }

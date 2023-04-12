@@ -1,20 +1,24 @@
 package view;
 
 import customer.Customer;
-import customer.CustomerRepository;
+import customer.CustomerController;
 import manage.ManagerViewer;
+import payment.Payment;
+import utility.Utility;
 
 import static utility.Utility.*;
 import static view.CartViewer.*;
+import static view.ItemViewer.*;
 
 public class StoreMain {
 
     // 필드 =============================
-    private CustomerRepository cr;
+
     private ManagerViewer mv;
+    private static Customer customer;
 
     public StoreMain() {
-        cr = new CustomerRepository();
+
         mv = new ManagerViewer();
     }
 
@@ -23,7 +27,7 @@ public class StoreMain {
 
         System.out.println("\n\n 무인 편의점에 오신 것을 환영합니다!");
 
-            selectWho(); // 고객 / 관리자 입장
+        selectWho(); // 고객 / 관리자 입장
 
     }
 
@@ -31,80 +35,86 @@ public class StoreMain {
     // 고객 / 관리자 입장
     private void selectWho() {
 
+        while (true) {
         System.out.println(" 1. 고객으로 입장하기 / 2. 관리자로 입장하기");
         String menuNum = input(">> ");
 
-        switch (menuNum) {
-            case "1":
-                customerView();
-                customerScreen(); // 고객 정보 입력화면
-                selectCustomerMenu(); // 고객 메뉴 선택
-                break;
-            case "2":
+            switch (menuNum) {
+                case "1":
+                    customerView();
+                    break;
+                case "2":
                     mv.managerLogin();
-                break;
-            default:
-                System.out.println("메뉴 번호를 다시 입력해주세요.");
-                break;
+                    break;
+                default:
+                    System.out.println("메뉴 번호를 다시 입력해주세요.");
+                    break;
+            }
         }
-
 
     }
 
 
     // 고객 정보 입력하기
-    private void customerView() {
-
+    private Customer customerView() {
+        customer = new Customer();
         System.out.println("\n환영합니다!");
-        System.out.println("회원님의 신분증 정보를 입력해주세요!");
-        String name = input(" - 이      름: ");
-        int age = Integer.parseInt(input(" - 나      이: "));
-        System.out.println(" - 연락처는 - 없이 정확히 입력해주세요!");
-        int phoneNumber = Integer.parseInt(input("    >> "));
+        System.out.println("회원님의 정보를 입력해주세요!");
+        customer.setName(input(" - 이    름: "));
+        customer.setAge(Integer.parseInt(input(" - 나    이: ")));
+        customer.setPhoneNumber(input(" - 연 락 처: "));
+        System.out.println("    * 최소 충전 금액은 3,000원 입니다 ^0^");
+        customer.setMoney(Integer.parseInt(input(" - 충전금액: ")));
 
-//        System.out.println(" 회원님의 보유 금액....");
+
+        CustomerController customerctrl = new CustomerController();
+        if (customerctrl.isExist(customer.getAge(), customer.getMoney())) {
+            selectCustomerMenu(); // 고객 메뉴 선택
+        }
+        System.out.println("고객 정보를 정확히 입력해주세요.");
 
 
-        Customer customer = new Customer();
-        customer.setName(name);
-        customer.setAge(age);
-        customer.setPhoneNumber(phoneNumber);
+        Utility.stop();
 
-        cr.register(customer);
+        return customer;
     }
 
 
-    // 고객 메뉴
-    private void customerScreen() {
-        System.out.println(" # 1. 상품선택");
-        System.out.println(" # 2. 장바구니");
-        System.out.println(" # 3. 결제하기");
-    }
+    public static void selectCustomerMenu() { // 고객 메뉴 선택 메서드
+
+        while (true) {
+            System.out.println("\n┌────── ★무인편의점★ ──────┐ ");
+            System.out.println("│ # 1. 상품선택             │");
+            System.out.println("│ # 2. 장바구니             │");
+            System.out.println("│ # 3. 결제하기             │");
+            System.out.println("└──────────────────────────┘");
+            String menuNum = input(" - 메뉴 번호: ");
+
+            switch (menuNum) {
+                case "1":
+                    ItemViewer.showItems(customer); // 1. 상품선택
+                    break;
+
+                case "2":
+                    myCart(); // 2. 장바구니
+                    break;
+
+                case "3":
+                    Payment.payCheck();
+                    // 3. 결제하기
+                    return;
+//                    break;
+
+                default:
+                    break;
 
 
-    private void selectCustomerMenu() {
-        String menuNum = input(" - 메뉴 번호: ");
-
-        switch (menuNum) {
-            case "1":
-
-                break;
-
-            case "2":
-                myCart();
-                break;
-
-            case "3":
-                break;
-
-            default:
-                break;
-
-
+            }
         }
 
 
     }
+
 
 
 }

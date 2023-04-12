@@ -1,4 +1,9 @@
 package manage;
+
+import item.Snack;
+
+import java.util.List;
+
 import static utility.Utility.*;
 
 public class ItemStock {
@@ -12,16 +17,17 @@ public class ItemStock {
         System.out.println("1.과자  2.음료수  3.라면  4.주류  5.담배");
         String num = input(">> ");
 
-        switch(num) {
-            case "1" :
+        switch (num) {
+            case "1":
+                System.out.println(Snack.getSnackList());
                 break;
-            case "2" :
+            case "2":
                 break;
-            case "3" :
+            case "3":
                 break;
-            case "4" :
+            case "4":
                 break;
-            case "5" :
+            case "5":
                 break;
             default:
                 System.out.println("잘못된 번호 입력입니다.");
