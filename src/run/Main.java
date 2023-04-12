@@ -14,8 +14,10 @@ public class Main {
         StoreMain storeMain = new StoreMain();
         storeMain.start();
 
-        ItemViewer.showItems();
+//        ItemViewer.showItems();
 //        Snack.getSnackList();
+//        CartViewer.myCart();
+
 
 
     }

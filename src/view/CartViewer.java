@@ -8,12 +8,14 @@ import utility.Utility;
 import java.util.List;
 
 public class CartViewer {
+    private static Cart cart;
     public static CartController cc;
 
     // 장바구니 목록 조회
     public static void myCart() {
-        System.out.println(" ============ 장바구니 목록 ============ ");
-        System.out.println("[리스트] [상품명] [단가] [수량] [합계]");
+        System.out.println(" ┌─────────────────────── 장바구니 목록 ───────────────────────┓  ");
+        System.out.println(" |      목록     상품명       단가       수량       합계     |");
+        System.out.println(" -------------------------------------------- ");
 //        List<Cart> cartlist = controller.getCartList();
 //        for (Cart cart : cartlist) {
 //            System.out.println(cart);
@@ -23,12 +25,13 @@ public class CartViewer {
 //        for (Cart item : cartList) {
 //            System.out.println(item);
 //        }
+        System.out.println(" -------------------------------------------- ");
+        System.out.printf(" 장바구니 총 금액 : %d" , cart.getTotal());
+        System.out.println(" └─────────────────────────────────────────────────────────┘  ");
 
 
-        System.out.println(" ------------------------------------- ");
-        System.out.println("장바구니 총 금액");
 
-        System.out.println(" # 1. 결제하기");
+        System.out.println(" # 0. 결제하기");
         System.out.println(" # 2. 상품 추가");
         System.out.println(" # 3. 상품 수정 및 삭제");
         System.out.println(" # 8. 이전 페이지");

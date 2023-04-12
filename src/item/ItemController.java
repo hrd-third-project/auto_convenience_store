@@ -1,8 +1,10 @@
 package item;
 
 import customer.Cart;
+import customer.Customer;
 import customer.CartController;
 import utility.Utility;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +12,7 @@ import java.util.List;
 import static utility.Utility.*;
 
 public class ItemController {
+
 
 //    private CartController cc;
 
@@ -116,8 +119,8 @@ public class ItemController {
         for (Smoke smoke : smokeList) {
             System.out.println(smoke);
         }
-
-        System.out.println("담을 품목 이름을 입력하세요.");
+        
+         System.out.println("담을 품목 이름을 입력하세요.");
         System.out.println("뒤로가시려면 '0'을 눌러주세요.");
         String inputItem = input(">> ");
         if(!inputItem.equals("0")) {
@@ -130,11 +133,20 @@ public class ItemController {
             }
         }
 
+    
+    }
 
+    /**
+     * 고객의 나이를 검증하는 메서드
+     * @return 고객나이가 19세 이상이면 true
+     */
+    public static boolean isAllow(Customer customer) {
+        return customer.getAge() >= 19;
+        }
 
-
-
+        
 
     }
+
 
 }
