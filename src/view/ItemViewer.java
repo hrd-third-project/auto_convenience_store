@@ -1,5 +1,6 @@
 package view;
 
+import customer.Customer;
 import item.Drink;
 import item.Item;
 import item.ItemController;
@@ -10,15 +11,23 @@ import static utility.Utility.*;
 public class ItemViewer {
 
     private static ItemController ic;
-//    private Drink drinkList;
 
 
-    public static void showItems() {
+
+
+    public static void showItems(Customer customer) {
         while (true) {
-            System.out.println(" ======= 상품 선택 ========");
-            System.out.println(" 1.과자류   2.음료수   3.컵라면   4.주류   5.담배");
+            System.out.println("\n=========== 상품 선택 ============");
+            System.out.print("1.과자류     ");
+            System.out.print("2.음료수     ");
+            System.out.print("3.컵라면     ");
+            if (ItemController.isAllow(customer))
+                System.out.print("\n4.주류       ");
+            if (ItemController.isAllow(customer))
+                System.out.print("5.담배   ");
 
-            String menuNum = input(" >> ");
+
+            String menuNum = input("\n >> ");
             switch (menuNum) {
                 case "1":
                     ItemController.showSnack();
@@ -30,9 +39,13 @@ public class ItemViewer {
                     ItemController.showCupNoodle();
                     break;
                 case "4":
+                    if (!ItemController.isAllow(customer))
+                        continue;
                     ItemController.showLiquor();
                     break;
                 case "5":
+                    if (!ItemController.isAllow(customer))
+                        continue;
                     ItemController.showSmoke();
                     break;
                 default:

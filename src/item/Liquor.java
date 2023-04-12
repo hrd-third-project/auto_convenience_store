@@ -39,8 +39,7 @@ public class Liquor extends Item {
 
     @Override
     public String toString() {
-        return super.toString() +"\t\t\t"+
-                " * 나이제한: " + accessAge + "이상 구매가능";
+        return super.toString();
     }
 
     public static List<Liquor> getLiquorList() {

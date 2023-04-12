@@ -1,13 +1,15 @@
 package item;
 
 import customer.Cart;
+import customer.Customer;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ItemController {
 
-//   public Drink drinkList;
+
+
 
     // 스낵리스트 불러오기
     public static void showSnack() {
@@ -31,7 +33,6 @@ public class ItemController {
         }
     }
 
-
     public static void showLiquor() {
         List<Liquor> liquorList = Liquor.getLiquorList();
         for (Liquor liquor : liquorList) {
@@ -44,7 +45,16 @@ public class ItemController {
         for (Smoke smoke : smokeList) {
             System.out.println(smoke);
         }
-
     }
+
+    /**
+     * 고객의 나이를 검증하는 메서드
+     * @return 고객나이가 19세 이상이면 true
+     */
+    public static boolean isAllow(Customer customer) {
+
+        return customer.getAge() >= 19;
+    }
+
 
 }
