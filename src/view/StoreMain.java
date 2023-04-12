@@ -40,7 +40,7 @@ public class StoreMain {
 
             switch (menuNum) {
                 case "1":
-                    customer = customerView();
+                    customerView();
                     break;
                 case "2":
                     mv.managerLogin();

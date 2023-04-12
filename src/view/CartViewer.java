@@ -7,50 +7,53 @@ import item.ItemController;
 import utility.Utility;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CartViewer {
-    private static Cart cart;
     public static CartController cc;
+    private static Cart cart;
     public ItemController ic;
-
-
-
 
 
     // 장바구니 목록 조회
     public static void myCart() {
-        System.out.println("\n\n ┌─────────────────────── 장바구니 목록 ───────────────────────┓  ");
-        System.out.println(" |         상품명       단가       수량       합계     |");
-        System.out.println(" -------------------------------------------- ");
+        System.out.println("\n\n ┌────────────────── 장바구니 목록 ──────────────────┓  ");
+        System.out.println(" │      상품명        단가       수량      합계       │");
+        System.out.println("\n │ ----------------------------------------------- │");
 
-//        List<Cart> cartlist = controller.getCartList();
-//        for (Cart cart : cartlist) {
-//            System.out.println(cart);
-//        }
+        List<Item> itemList = CartController.getCartList();
 
-//        List<Cart> cartList = (List<Cart>) Cart.getItem();
-//        for (Cart item : cartList) {
-//            System.out.println(item);
-//        }
-        System.out.println(" -------------------------------------------- ");
-        System.out.printf(" 장바구니 총 금액 : %d" , Cart.getTotal());
-        System.out.println(" \n└─────────────────────────────────────────────────────────┘  ");
+        List<Item> distincList = itemList.stream()
+                .distinct()
+                .collect(Collectors.toList());
+        for (Item item : distincList) {
+            System.out.println();
+            System.out.print(" \t\t" + item.getItemName() + "\t\t");
+            System.out.print(item.getPrice() + "\t\t");
+            System.out.print(10 - item.getNum() + "\t\t");
+            System.out.print(item.getPrice() * (10 - item.getNum()) + "\t   ");
+        }
 
 
+        System.out.println("\n │ ----------------------------------------------- │");
+        int sum = 0;
+        for (Item myCartItem : itemList) {
+            sum += myCartItem.getPrice();
+        }
+        System.out.println(" │\t\t\t  [ 장바구니 총 금액 : " + sum + " ] \t\t\t  │");
+        System.out.println(" └─────────────────────────────────────────────────┘  ");
 
-        System.out.println(" # 0. ");
-        System.out.println(" # 2. 상품 추가");
-        System.out.println(" # 3. 상품 수정 및 삭제");
-        System.out.println(" # 8. 이전 페이지");
-        System.out.println(" # 9. 그냥 나가기");
+
+        System.out.println(" # 1. 품목삭제 ");
 
         String menuNum = Utility.input(" - 메뉴 입력: ");
         switch (menuNum) {
             case "1":
+//                CartController.deleteItem();
                 break;
             case "2":
                 break;
-            case "9":
+            case "0":
                 return;
             default:
                 System.out.println("메뉴를 잘못 입력했습니다.");
