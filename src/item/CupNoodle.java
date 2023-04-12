@@ -20,7 +20,11 @@ public class CupNoodle extends Item {
     }
 
     public CupNoodle(String itemName, int price, int num) {
+        super(itemName, price, num);
+    }
 
+    public static List<CupNoodle> getCupNoodleList() {
+        return cupNoodleList;
     }
 }
 

@@ -7,6 +7,7 @@ import java.util.List;
 public class Smoke extends Item {
 
     private static List<Smoke> smokeList;
+    private static final int accessAge = 19;
 
     static  {
         smokeList = new ArrayList<>(Arrays.asList(
@@ -19,6 +20,14 @@ public class Smoke extends Item {
     }
 
     public Smoke(String itemName, int price, int num) {
+        super(itemName, price, num);
+    }
 
+    public static int getAccessAge() {
+        return accessAge;
+    }
+
+    public static List<Smoke> getSmokeList() {
+        return smokeList;
     }
 }

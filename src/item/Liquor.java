@@ -7,7 +7,7 @@ import java.util.List;
 public class Liquor extends Item {
 
     private static List<Liquor> liquorList;
-
+    private static final int accessAge = 19;
 
     static  {
         liquorList = new ArrayList<>(Arrays.asList(
@@ -22,9 +22,13 @@ public class Liquor extends Item {
     //매개변수 전달
     public Liquor(String itemName, int price, int num) {
         super(itemName, price, num);
-
-
     }
 
+    public static int getAccessAge() {
+        return accessAge;
+    }
 
+    public static List<Liquor> getLiquorList() {
+        return liquorList;
+    }
 }
