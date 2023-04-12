@@ -50,8 +50,6 @@ public class Cart {
 
     @Override
     public String toString() {
-        return "[" +
-                item + count + total +
-                "]";
+        return "[" + item + count + total + "]";
     }
 }

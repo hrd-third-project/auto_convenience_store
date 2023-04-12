@@ -22,7 +22,6 @@ public class CartController {
     }
 
     public static List<Item> getCartList() {
-
         return cartlist;
     }
 
@@ -32,9 +31,6 @@ public class CartController {
 ////        getCartList() -
 ////        return list;
 //    }
-
-
-
 
 
 
