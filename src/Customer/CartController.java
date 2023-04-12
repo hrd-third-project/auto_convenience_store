@@ -8,7 +8,7 @@ import java.util.List;
 
 public class CartController {
 
-//    private Cart mycart;
+    private Cart mycart;
 
     // 테스트용
     private static List<Item> cartlist;
@@ -24,6 +24,13 @@ public class CartController {
     public static List<Item> getCartList() {
         return cartlist;
     }
+
+    // 품목 지우는 메서드
+//    public static List<Item> deleteItem() {
+////        List<Item> list = null;
+////        getCartList() -
+////        return list;
+//    }
 
 
 
