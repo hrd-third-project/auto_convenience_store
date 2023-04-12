@@ -9,7 +9,7 @@ public class Liquor extends Item {
     private static List<Liquor> liquorList;
     private static final int accessAge = 19;
 
-    static  {
+    static {
         liquorList = new ArrayList<>(Arrays.asList(
                 new Liquor("참이슬", 1800, 10),
                 new Liquor("처음처럼", 1800, 10),
@@ -19,16 +19,34 @@ public class Liquor extends Item {
         ));
     }
 
+    public Liquor() {
+    }
+
     //매개변수 전달
     public Liquor(String itemName, int price, int num) {
         super(itemName, price, num);
+
     }
 
-    public static int getAccessAge() {
+
+    public int getAccessAge() {
         return accessAge;
+    }
+
+    public static void setLiquorList(List<Liquor> liquorList) {
+        Liquor.liquorList = liquorList;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +"\t\t\t"+
+                " * 나이제한: " + accessAge + "이상 구매가능";
     }
 
     public static List<Liquor> getLiquorList() {
         return liquorList;
+
+
     }
+
 }
