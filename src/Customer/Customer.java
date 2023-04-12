@@ -5,7 +5,7 @@ public class Customer {
     // 필드 ========================================
     private String name;
     private int age;
-    private int phoneNumber;
+    private String phoneNumber;
     private int money;
 
 
@@ -13,7 +13,7 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(String name, int age, int phoneNumber, int money) {
+    public Customer(String name, int age, String phoneNumber, int money) {
         this.name = name;
         this.age = age;
         this.phoneNumber = phoneNumber;
@@ -37,11 +37,11 @@ public class Customer {
         this.age = age;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

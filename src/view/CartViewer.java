@@ -8,7 +8,7 @@ import utility.Utility;
 import java.util.List;
 
 public class CartViewer {
-    public static CartController controller;
+    public static CartController cc;
 
     // 장바구니 목록 조회
     public static void myCart() {
