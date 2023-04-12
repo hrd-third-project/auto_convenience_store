@@ -6,10 +6,9 @@ import java.util.List;
 
 public class Smoke extends Item {
 
-    List<Smoke> smokeList;
+    private static List<Smoke> smokeList;
 
-    public Smoke() {
-
+    static  {
         smokeList = new ArrayList<>(Arrays.asList(
                 new Smoke("말보르", 4500, 10),
                 new Smoke("에쎄체인지", 4500, 10),

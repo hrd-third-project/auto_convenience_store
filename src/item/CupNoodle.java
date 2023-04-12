@@ -6,9 +6,9 @@ import java.util.List;
 
 public class CupNoodle extends Item {
 
-    List<CupNoodle> cupNoodleList;
+    private static List<CupNoodle> cupNoodleList;
 
-    public CupNoodle() {
+    static  {
 
         cupNoodleList = new ArrayList<>(Arrays.asList(
                 new CupNoodle("신라면", 1100, 10),

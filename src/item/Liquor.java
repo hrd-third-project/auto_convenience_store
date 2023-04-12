@@ -6,10 +6,10 @@ import java.util.List;
 
 public class Liquor extends Item {
 
-    List<Liquor> liquorList;
+    private static List<Liquor> liquorList;
 
 
-    public Liquor() {
+    static  {
         liquorList = new ArrayList<>(Arrays.asList(
                 new Liquor("참이슬", 1800, 10),
                 new Liquor("처음처럼", 1800, 10),
