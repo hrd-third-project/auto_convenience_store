@@ -1,10 +1,9 @@
 package view;
 
 import customer.Customer;
-import customer.CustomerRepository;
+import customer.CustomerController;
 import manage.ManagerViewer;
 
-import static item.ItemController.*;
 import static utility.Utility.*;
 import static view.CartViewer.*;
 import static view.ItemViewer.*;
@@ -12,11 +11,9 @@ import static view.ItemViewer.*;
 public class StoreMain {
 
     // 필드 =============================
-    private CustomerRepository cr;
     private ManagerViewer mv;
 
     public StoreMain() {
-        cr = new CustomerRepository();
         mv = new ManagerViewer();
     }
 
@@ -25,7 +22,7 @@ public class StoreMain {
 
         System.out.println("\n\n 무인 편의점에 오신 것을 환영합니다!");
 
-            selectWho(); // 고객 / 관리자 입장
+        selectWho(); // 고객 / 관리자 입장
 
     }
 
@@ -39,11 +36,11 @@ public class StoreMain {
         switch (menuNum) {
             case "1":
                 customerView();
-                customerScreen(); // 고객 정보 입력화면
-                selectCustomerMenu(); // 고객 메뉴 선택
+
+
                 break;
             case "2":
-                    mv.managerLogin();
+                mv.managerLogin();
                 break;
             default:
                 System.out.println("메뉴 번호를 다시 입력해주세요.");
@@ -64,27 +61,29 @@ public class StoreMain {
         System.out.println(" - 연락처는 - 없이 정확히 입력해주세요!");
         int phoneNumber = Integer.parseInt(input("    >> "));
 
-//        System.out.println(" 회원님의 보유 금액....");
-
 
         Customer customer = new Customer();
         customer.setName(name);
         customer.setAge(age);
         customer.setPhoneNumber(phoneNumber);
+        customer.setMoney(Integer.parseInt(input("충전금액")));
 
-        cr.register(customer);
+        CustomerController customerctrl = new CustomerController();
+
+
+
+       // selectCustomerMenu(); // 고객 메뉴 선택
     }
 
 
     // 고객 메뉴
-    private void customerScreen() {
-        System.out.println(" # 1. 상품선택");
-        System.out.println(" # 2. 장바구니");
-        System.out.println(" # 3. 결제하기");
-    }
+
 
 
     private void selectCustomerMenu() {
+        System.out.println(" # 1. 상품선택");
+        System.out.println(" # 2. 장바구니");
+        System.out.println(" # 3. 결제하기");
         String menuNum = input(" - 메뉴 번호: ");
 
         switch (menuNum) {
