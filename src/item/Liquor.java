@@ -37,10 +37,12 @@ public class Liquor extends Item {
         Liquor.liquorList = liquorList;
     }
 
+
     @Override
     public String toString() {
         return super.toString();
     }
+
 
     public static List<Liquor> getLiquorList() {
         return liquorList;

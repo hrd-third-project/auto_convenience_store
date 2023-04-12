@@ -41,11 +41,11 @@ public class Smoke extends Item {
         return smokeList;
     }
 
+
     @Override
     public String toString() {
         return super.toString();
     }
-
 
 
 }
