@@ -6,9 +6,8 @@ import java.util.List;
 
 public class Smoke extends Item {
 
-    private final int accessAge = 19;
     private static List<Smoke> smokeList;
-
+    private static final int accessAge = 19;
 
 
     static  {
@@ -29,7 +28,8 @@ public class Smoke extends Item {
         super(itemName, price, num);
     }
 
-    public int getAccessAge() {
+
+    public static int getAccessAge() {
         return accessAge;
     }
 
@@ -37,7 +37,9 @@ public class Smoke extends Item {
         Smoke.smokeList = smokeList;
     }
 
-
+     public static List<Smoke> getSmokeList() {
+        return smokeList;
+    }
 
     @Override
     public String toString() {
@@ -45,13 +47,6 @@ public class Smoke extends Item {
                 " * 나이제한: " + accessAge + "이상 구매가능";
     }
 
-
-
-
-
-    public static List<Smoke> getSmokeList() {
-        return smokeList;
-    }
 
 
 }

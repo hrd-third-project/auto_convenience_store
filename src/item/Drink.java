@@ -9,7 +9,7 @@ public class Drink extends Item {
 
 
 
-    /*public Drink()*/ static {
+    static {
 
         drinkList = new ArrayList<>(Arrays.asList(
         new Drink("코카콜라", 1500, 10),

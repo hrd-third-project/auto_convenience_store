@@ -31,6 +31,7 @@ public class ItemController {
         }
     }
 
+
     public static void showLiquor() {
         List<Liquor> liquorList = Liquor.getLiquorList();
         for (Liquor liquor : liquorList) {
@@ -43,6 +44,7 @@ public class ItemController {
         for (Smoke smoke : smokeList) {
             System.out.println(smoke);
         }
+
     }
 
 
