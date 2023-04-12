@@ -6,7 +6,10 @@ import java.util.List;
 
 public class Smoke extends Item {
 
+    private final int accessAge = 19;
     private static List<Smoke> smokeList;
+
+
 
     static  {
         smokeList = new ArrayList<>(Arrays.asList(
@@ -18,7 +21,37 @@ public class Smoke extends Item {
         ));
     }
 
-    public Smoke(String itemName, int price, int num) {
 
+    public Smoke() {
     }
+
+    public Smoke(String itemName, int price, int num) {
+        super(itemName, price, num);
+    }
+
+    public int getAccessAge() {
+        return accessAge;
+    }
+
+    public static void setSmokeList(List<Smoke> smokeList) {
+        Smoke.smokeList = smokeList;
+    }
+
+
+
+    @Override
+    public String toString() {
+        return super.toString() +"\t\t\t"+
+                " * 나이제한: " + accessAge + "이상 구매가능";
+    }
+
+
+
+
+
+    public static List<Smoke> getSmokeList() {
+        return smokeList;
+    }
+
+
 }

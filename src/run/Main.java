@@ -11,11 +11,11 @@ public class Main {
 
     public static void main(String[] args) {
 
-        StoreMain storeMain = new StoreMain();
-        storeMain.start();
+//        StoreMain storeMain = new StoreMain();
+//        storeMain.start();
 
         ItemViewer.showItems();
-        Snack.getSnackList();
+//        Snack.getSnackList();
 
 
     }

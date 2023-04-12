@@ -14,7 +14,8 @@ public class Item {
 
 
     // 생성자 ========================================
-    public Item() {}
+    public Item() {
+    }
 
     public Item(String itemName, int price, int num) {
         this.itemName = itemName;
@@ -49,13 +50,9 @@ public class Item {
     }
 
 
-
     @Override
     public String toString() {
-        return "Item{" +
-                "itemName='" + itemName + '\'' +
-                ", price=" + price +
-                ", num=" + num +
-                '}';
+
+        return String.format("%-10s%-10d%-10d", this.itemName ,  this.price , this.num);
     }
 }

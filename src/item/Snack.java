@@ -20,17 +20,17 @@ public class Snack extends Item {
         ));
    }
 
-    public static List<Snack> getSnackList() {
-        return snackList;
-    }
     public Snack() {
     }
-
 
     public Snack(String itemName, int price, int num) {
         super(itemName, price, num);
     }
 
+
+    public static List<Snack> getSnackList() {
+        return snackList;
+    }
 
 
 }

@@ -8,8 +8,7 @@ public class CupNoodle extends Item {
 
     private static List<CupNoodle> cupNoodleList;
 
-    static  {
-
+    static {
         cupNoodleList = new ArrayList<>(Arrays.asList(
                 new CupNoodle("신라면", 1100, 10),
                 new CupNoodle("왕뚜껑", 1100, 10),
@@ -19,9 +18,18 @@ public class CupNoodle extends Item {
         ));
     }
 
-    public CupNoodle(String itemName, int price, int num) {
 
+
+    public CupNoodle(String itemName, int price, int num) {
+        super(itemName, price, num);
     }
+
+
+    public static List<CupNoodle> getCupNoodleList() {
+        return cupNoodleList;
+    }
+
+
 }
 
 

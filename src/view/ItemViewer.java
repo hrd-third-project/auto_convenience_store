@@ -20,15 +20,19 @@ public class ItemViewer {
         String menuNum = input(" >> ");
         switch (menuNum) {
             case "1":
+                ItemController.showSnack();
                 break;
             case "2":
                 ItemController.showDrink();
                 break;
             case "3":
+                ItemController.showCupNoodle();
                 break;
             case "4":
+                ItemController.showLiquor();
                 break;
             case "5":
+                ItemController.showSmoke();
                 break;
             default:
                 break;
