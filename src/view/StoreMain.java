@@ -81,30 +81,33 @@ public class StoreMain {
 
     private static void selectCustomerMenu() { // 고객 메뉴 선택 메서드
 
-        System.out.println("\n┌────── ★무인편의점★ ──────┐ ");
-        System.out.println("│ # 1. 상품선택             │");
-        System.out.println("│ # 2. 장바구니             │");
-        System.out.println("│ # 3. 결제하기             │");
-        System.out.println("└──────────────────────────┘");
-        String menuNum = input(" - 메뉴 번호: ");
+        while (true) {
+            System.out.println("\n┌────── ★무인편의점★ ──────┐ ");
+            System.out.println("│ # 1. 상품선택             │");
+            System.out.println("│ # 2. 장바구니             │");
+            System.out.println("│ # 3. 결제하기             │");
+            System.out.println("└──────────────────────────┘");
+            String menuNum = input(" - 메뉴 번호: ");
 
-        switch (menuNum) {
-            case "1":
-                ItemViewer.showItems(customer); // 1. 상품선택
-                break;
+            switch (menuNum) {
+                case "1":
+                    ItemViewer.showItems(customer); // 1. 상품선택
+                    break;
 
-            case "2":
-                myCart(); // 2. 장바구니
-                break;
+                case "2":
+                    myCart(); // 2. 장바구니
+                    break;
 
-            case "3":
-                // 3. 결제하기
-                break;
+                case "3":
+                    // 3. 결제하기
+                    return;
+//                    break;
 
-            default:
-                break;
+                default:
+                    break;
 
 
+            }
         }
 
 

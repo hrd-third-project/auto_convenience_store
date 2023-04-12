@@ -25,6 +25,7 @@ public class ItemViewer {
                 System.out.print("\n4.주류       ");
             if (ItemController.isAllow(customer))
                 System.out.print("5.담배   ");
+            System.out.println("\n뒤로가시려면 '0'을 눌러주세요.");
 
 
             String menuNum = input("\n >> ");
@@ -48,6 +49,8 @@ public class ItemViewer {
                         continue;
                     ItemController.showSmoke();
                     break;
+                case "0":
+                    return;
                 default:
                     System.out.println("번호의 입력이 잘못되었습니다");
                     break;

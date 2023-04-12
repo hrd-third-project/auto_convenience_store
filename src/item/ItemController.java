@@ -37,7 +37,7 @@ public class ItemController {
                 }
             }
         }
-
+    return snackList;
     }
 
     // 음료 리스트 불러오기 및 상품 선택창
@@ -61,7 +61,7 @@ public class ItemController {
             }
         }
 
-
+        return drinkList;
     }
 
     // 컵라면 리스트 불러오기 및 상품 선택창
@@ -83,7 +83,7 @@ public class ItemController {
                 }
             }
         }
-
+        return cupNoodle;
 
     }
 
@@ -108,7 +108,7 @@ public class ItemController {
                 }
             }
         }
-
+        return liquorList;
 
     }
 
@@ -132,6 +132,7 @@ public class ItemController {
                 }
             }
         }
+        return smokeList;
 
 
     }
