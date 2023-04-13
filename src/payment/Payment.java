@@ -9,8 +9,6 @@ import static utility.Utility.stop;
 
 public class Payment {
     //필드
-
-
     private static Customer customer;
     private static int payment; //총금액
     private static String purchaseList = "[ "; // 구매리스트
