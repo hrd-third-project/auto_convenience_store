@@ -32,8 +32,6 @@ public class CartController {
     }
 
 
-
-
     // 카트에 품목을 지우는 메서드
     public static List<Item> deleteItem() {
         List<Item> cartList = CartController.getCartList();
@@ -49,20 +47,27 @@ public class CartController {
                     .filter(item -> item.getItemName().equals(delItem))
                     .limit(1)
                     .collect(Collectors.toList());
-
-            
             System.out.println("removeItem = " + removeItem);
-            System.out.println("cartList = " + cartList);
-            // 해당 상품의 재고를 다시 1 추가
+
+
+            int delItemIndex = -1;
+
+            for (int i = 0; i < cartList.size(); i++) {
+                if (cartList.get(i).getItemName().equals(delItem)) {
+                    delItemIndex = i;
+                    break;
+                }
+            }
+            cartList.remove(delItemIndex);
+
+
+            //  해당 상품의 재고를 다시 1 추가
             for (Item item : removeItem) {
                 item.setNum(item.getNum() + 1);
                 System.out.println(item.getItemName() + "을/를 장바구니에서 삭제하였습니다.");
             }
 
-
-
-            System.out.println("\n\n \t\t ********** 수정된 장바구니 목록 **********");
-
+            // 장바구니 목록 재호출
             CartViewer.myCart();
 
         } else {

@@ -59,7 +59,7 @@ public class CartViewer {
                 sum += myCartItem.getPrice();
             }
 
-            System.out.println(" │  \t\t\t[ 장바구니 총 금액 : " + formatter.format(sum) + "원 ]\t\t\t  │");
+            System.out.println(" │   \t\t[ 장바구니 총 금액 : " + formatter.format(sum) + "원 ]\t\t\t   │");
 
             System.out.println(" └─────────────────────────────────────────────────┘  ");
 
