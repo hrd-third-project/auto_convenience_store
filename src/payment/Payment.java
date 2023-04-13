@@ -5,7 +5,6 @@ import customer.Customer;
 import item.Item;
 import view.StoreMain;
 
-
 import java.util.List;
 
 import static utility.Utility.stop;
@@ -15,10 +14,7 @@ public class Payment {
 
     private static Customer customer;
     private static int payment; //총금액
-    private static String purchaseList = "[ "; // 구매리스트
 
-
-    private static int purchnum; //구매수량
 
     public static void payCheck() {
         customer = new Customer();
