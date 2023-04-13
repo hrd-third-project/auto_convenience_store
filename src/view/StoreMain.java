@@ -8,7 +8,6 @@ import utility.Utility;
 
 import static utility.Utility.*;
 import static view.CartViewer.*;
-import static view.ItemViewer.*;
 
 public class StoreMain {
 
@@ -64,11 +63,11 @@ public class StoreMain {
         customer.setAge(Integer.parseInt(input(" - 나    이: ")));
         customer.setPhoneNumber(input(" - 연 락 처: "));
         System.out.println("    * 최소 충전 금액은 3,000원 입니다 ^0^");
-        customer.setMoney(Integer.parseInt(input(" - 충전금액: ")));
+        customer.setChargeAmount(Integer.parseInt(input(" - 충전금액: ")));
 
 
         CustomerController customerctrl = new CustomerController();
-        if (customerctrl.isExist(customer.getAge(), customer.getMoney())) {
+        if (customerctrl.isExist(customer.getAge(), customer.getChargeAmount())) {
             selectCustomerMenu(); // 고객 메뉴 선택
         }else {
             System.out.println("고객 정보를 정확히 입력해주세요.");
