@@ -14,7 +14,6 @@ import java.util.stream.Stream;
 
 public class CartController {
 
-    // 테스트용
     private static List<Item> cartlist;
 
     static {
