@@ -9,6 +9,8 @@ import static utility.Utility.stop;
 
 public class Payment {
     //필드
+
+
     private static Customer customer;
     private static int payment; //총금액
     private static String purchaseList = "[ "; // 구매리스트
@@ -25,6 +27,7 @@ public class Payment {
                 purchaseList += item.getItemName()+" ";
             }
             purchaseList += "]";
+
 
             //cartList에 담겨있는 총금액 계산 --> 결제완료 후 처음화면으로 이동
             System.out.println("[총금액] : " + customer.getPayment());
