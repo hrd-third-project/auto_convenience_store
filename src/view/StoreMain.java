@@ -1,5 +1,6 @@
 package view;
 
+import customer.CartController;
 import customer.Customer;
 import customer.CustomerController;
 import manage.ManagerViewer;
@@ -23,6 +24,8 @@ public class StoreMain {
 
     // 메서드 =============================
     public static void start() {
+        System.out.println("시작 "+CartController.getCartList());
+        System.out.println(customer.getItemNames());
 
         System.out.println("\n\n 무인 편의점에 오신 것을 환영합니다!");
 
@@ -67,6 +70,7 @@ public class StoreMain {
 
 
         CustomerController customerctrl = new CustomerController();
+
         if (customerctrl.isExist(customer.getAge(), customer.getChargeAmount())) {
             selectCustomerMenu(); // 고객 메뉴 선택
         }else {
