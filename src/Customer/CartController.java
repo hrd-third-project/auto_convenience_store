@@ -34,6 +34,8 @@ public class CartController {
     }
 
 
+
+
     // 카트에 품목을 지우는 메서드
     public static List<Item> deleteItem() {
         List<Item> cartList = CartController.getCartList();
@@ -56,7 +58,10 @@ public class CartController {
                 System.out.println(item.getItemName() + "을/를 장바구니에서 삭제하였습니다.");
             }
 
+
+
             System.out.println("\n\n \t\t ********** 수정된 장바구니 목록 **********");
+
             CartViewer.myCart();
 
         } else {
