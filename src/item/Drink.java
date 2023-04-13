@@ -8,7 +8,7 @@ public class Drink extends Item {
     private static List<Drink> drinkList;
 
 
-    private  static sdasda;;
+
     static {
 
         drinkList = new ArrayList<>(Arrays.asList(
