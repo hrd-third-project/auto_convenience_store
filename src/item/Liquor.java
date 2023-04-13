@@ -13,9 +13,9 @@ public class Liquor extends Item {
         liquorList = new ArrayList<>(Arrays.asList(
                 new Liquor("참이슬", 1800, 10),
                 new Liquor("처음처럼", 1800, 10),
-                new Liquor("새로", 1800, 10),
-                new Liquor("카스", 1800, 10),
-                new Liquor("진로", 1800, 10)
+                new Liquor("보드카", 45000, 10),
+                new Liquor("하이네켄", 1800, 10),
+                new Liquor("막걸리", 3500, 10)
         ));
     }
 

@@ -17,24 +17,6 @@ public class ManagerViewer {
         pl = new PurchaseLog();
     }
 
-    private void managerView() {
-
-        System.out.println("1. 품목 재고 확인창\n"
-                        +  "2. 판매 수입 확인창\n"
-                        +  "3. 고객 구매 로그창");
-        String num = input(">> ");
-
-        switch (num) {
-            case "1" : is.showItemMenu();
-                break;
-            case "2" : ic.showIncome();
-                break;
-            case "3" :
-                break;
-
-        }
-
-    }
     public void managerLogin() {
 
         String inputId = input("아이디 : ");
@@ -50,4 +32,32 @@ public class ManagerViewer {
 
 
     }
+    private void managerView() {
+
+        checkPoint:while(true) {
+            System.out.println("============= 관리자 화면 =============");
+            System.out.println("0. 로그아웃\n"
+                    + "1. 품목 재고 확인창\n"
+                    + "2. 판매 수입 확인창\n"
+                    + "3. 고객 구매 로그창");
+            String num = input(">> ");
+
+            switch (num) {
+                case "0":
+                    break checkPoint;
+                case "1":
+                    is.showItemMenu();
+                    break;
+                case "2":
+                    ic.showIncome();
+                    break;
+                case "3":
+                    break;
+
+            }
+
+        }
+
+    }
+
 }

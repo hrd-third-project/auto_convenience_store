@@ -1,5 +1,7 @@
 package utility;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.Scanner;
 
 public class Utility {
@@ -22,6 +24,8 @@ public class Utility {
         System.out.println("\n *** Enter를 눌러서 계속 진행하기 *** ");
         sc.nextLine();
     }
+
+
 
 
 }

@@ -1,6 +1,7 @@
 package payment;
 
 import customer.CartController;
+import customer.Customer;
 import item.Item;
 import view.StoreMain;
 
@@ -11,30 +12,23 @@ import static utility.Utility.stop;
 
 public class Payment {
 
-    //필드
 
-
-
+    private static Customer customer;
     private static int payment; //총금액
-    private static String purchaseList = ""; // 구매리스트
+    private static String purchaseList = "[ "; // 구매리스트
+
 
     private static int purchnum; //구매수량
 
     public static void payCheck() {
+        customer = new Customer();
         //선택한 품목이 1개이상인가
         if (CartController.getCartList().size() >= 1) {
 
+            // cartList에 담겨있는 품목 +총금액
 
-
-            //총금액
-           for (Item item : CartController.getCartList()) {
-
-               payment += item.getPrice();    //총합계
-
-                purchnum += item.getNum();
-
-
-
+            for (Item item : CartController.getCartList()) {
+                customer.setPayment(customer.getPayment() + item.getPrice());
 
             }
 
@@ -58,13 +52,17 @@ public class Payment {
             //총금액 계산창
 
 
-            System.out.println(" │\t\t\t  [ 총 결제금액 : " + payment + " ] \t\t\t  │");
+            System.out.println(" │\t\t\t  [ 총 결제금액 : " + customer.getPayment() + " ] \t\t\t  │");
             System.out.println(" └─────────────────────────────────────────────────┘  ");
 
+
             System.out.println("감사합니다! 또 이용해주세요.");
+            stop();
+            StoreMain.start();
 
 
-            //NO 면 상품선택창으로 이동
+            //cartList에  아무것도 담겨있지 않은 경우 -> 상품선택창으로 이동
+
         } else {
             System.out.println("상품을 선택해주세요");
             stop();

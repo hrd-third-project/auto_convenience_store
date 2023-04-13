@@ -1,6 +1,16 @@
 package customer;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CustomerController {
+
+    private static List<Customer> customerLogList;
+
+    static {
+        customerLogList = new ArrayList<>();
+    }
+
 
     /**
      * 고객 입장 유효성 검사
