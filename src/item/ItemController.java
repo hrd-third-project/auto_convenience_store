@@ -36,6 +36,7 @@ public class ItemController {
                         CartController.getCartList().add(snack);    // 장바구니에 해당 상품 1 추가
                         System.out.println(snack.getItemName() + "을 장바구니에 담았습니다.");
                         snack.setNum(snack.getNum() - 1);   // 해당 상품 재고에서 1 차감
+                        stop();
                     } else {
                         System.out.println(snack.getItemName() + "은 품절입니다.");
                     }
@@ -68,6 +69,7 @@ public class ItemController {
                             CartController.getCartList().add(drink);    // 장바구니에 해당 상품 1 추가
                             System.out.println(drink.getItemName() + "을 장바구니에 담았습니다.");
                             drink.setNum(drink.getNum() - 1);   // 해당 상품 재고에서 1 차감
+                            stop();
                             break checkPoint;
                         } else {
                             System.out.println(drink.getItemName() + "은 품절입니다.");

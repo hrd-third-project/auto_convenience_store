@@ -14,7 +14,6 @@ import java.util.stream.Stream;
 
 public class CartController {
 
-    // 테스트용
     private static List<Item> cartlist;
 
     static {
@@ -32,6 +31,8 @@ public class CartController {
     public static List<Item> getCartList() {
         return cartlist;
     }
+
+
 
 
     // 카트에 품목을 지우는 메서드
@@ -56,7 +57,10 @@ public class CartController {
                 System.out.println(item.getItemName() + "을/를 장바구니에서 삭제하였습니다.");
             }
 
+
+
             System.out.println("\n\n \t\t ********** 수정된 장바구니 목록 **********");
+
             CartViewer.myCart();
 
         } else {

@@ -6,18 +6,20 @@ public class Customer {
     private String name;
     private int age;
     private String phoneNumber;
-    private int money;
+    private int chargeAmount;
+    private int payment = 0;
+
 
 
     // 생성자 ========================================
     public Customer() {
     }
 
-    public Customer(String name, int age, String phoneNumber, int money) {
+    public Customer(String name, int age, String phoneNumber, int chargeAmount) {
         this.name = name;
         this.age = age;
         this.phoneNumber = phoneNumber;
-        this.money = money;
+        this.chargeAmount = chargeAmount;
     }
 
     // Getter, Setter ========================================
@@ -45,14 +47,21 @@ public class Customer {
         this.phoneNumber = phoneNumber;
     }
 
-    public int getMoney() {
-        return money;
+    public int getChargeAmount() {
+        return chargeAmount;
     }
 
-    public void setMoney(int money) {
-        this.money = money;
+    public void setChargeAmount(int chargeAmount) {
+        this.chargeAmount = chargeAmount;
     }
 
+    public int getPayment() {
+        return payment;
+    }
+
+    public void setPayment(int payment) {
+        this.payment = payment;
+    }
 
     @Override
     public String toString() {
@@ -60,7 +69,7 @@ public class Customer {
                 "name='" + name + '\'' +
                 ", birth=" + age +
                 ", phoneNumber=" + phoneNumber +
-                ", money=" + money +
+                ", money=" + chargeAmount +
                 '}';
     }
 }
