@@ -23,9 +23,8 @@ public class CartController {
     public ItemController ic;
     private Cart mycart;
 
-    public static List<Item> setCartlist(Item item) {
+    public static void setCartlist(Item item) {
         cartlist = cartlist;
-        return cartlist;
     }
 
     public static List<Item> getCartList() {
@@ -51,6 +50,9 @@ public class CartController {
                     .limit(1)
                     .collect(Collectors.toList());
 
+            
+            System.out.println("removeItem = " + removeItem);
+            System.out.println("cartList = " + cartList);
             // 해당 상품의 재고를 다시 1 추가
             for (Item item : removeItem) {
                 item.setNum(item.getNum() + 1);
