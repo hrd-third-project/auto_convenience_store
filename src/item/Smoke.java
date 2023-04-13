@@ -14,8 +14,8 @@ public class Smoke extends Item {
         smokeList = new ArrayList<>(Arrays.asList(
                 new Smoke("말보르", 4500, 10),
                 new Smoke("뫼비우스", 4500, 10),
-                new Smoke("더원  ", 4500, 10),
-                new Smoke("던힐  ", 4500, 10),
+                new Smoke("필라멘트", 4500, 10),
+                new Smoke("에쎄수", 4500, 10),
                 new Smoke("한라산", 4500, 10)
         ));
     }
