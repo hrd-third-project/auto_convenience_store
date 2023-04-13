@@ -20,6 +20,7 @@ public class ItemController {
     // 간식 리스트 불러오기 및 상품 선택창
     public static void showSnack() {
         List<Snack> snackList = Snack.getSnackList();
+
         for (Snack snack : snackList) {
             System.out.println(snack);
         }
@@ -47,28 +48,39 @@ public class ItemController {
     // 음료 리스트 불러오기 및 상품 선택창
     public static void showDrink() {
         List<Drink> drinkList = Drink.getDrinkList();
+
+        checkPoint:while (true) {
+
         for (Drink drink : drinkList) {
-            System.out.println(drink);
+            System.out.println(drink);  // 음료수 세부품목 리스트 출력
         }
 
-        System.out.println("담을 품목 이름을 입력하세요.");
-        System.out.println("뒤로가시려면 '0'을 눌러주세요.");
-        String inputItem = input(">> ");
-        if (!inputItem.equals("0")) { // 뒤로가기 버튼(0) 을 누르지 않았으면 실행
-            for (Drink drink : drinkList) {
+            System.out.println("담을 품목 이름을 입력하세요.");
+            System.out.println("뒤로가시려면 '0'을 눌러주세요.");
+            String inputItem = input(">> ");
 
-                if (inputItem.equals(drink.getItemName())) {
-                    if(drink.getNum() > 0) {    // 해당 상품의 개수가 0이 아닌지 확인
-                        CartController.getCartList().add(drink);    // 장바구니에 해당 상품 1 추가
-                        System.out.println(drink.getItemName() + "을 장바구니에 담았습니다.");
-                        drink.setNum(drink.getNum() - 1);   // 해당 상품 재고에서 1 차감
-                    } else {
-                        System.out.println(drink.getItemName() + "은 품절입니다.");
+
+            if (!inputItem.equals("0")) { // 뒤로가기 버튼(0) 을 누르지 않았으면 실행
+                for (Drink drink : drinkList) {
+
+                    if (inputItem.equals(drink.getItemName())) {
+                        if (drink.getNum() > 0) {    // 해당 상품의 개수가 0이 아닌지 확인
+                            CartController.getCartList().add(drink);    // 장바구니에 해당 상품 1 추가
+                            System.out.println(drink.getItemName() + "을 장바구니에 담았습니다.");
+                            drink.setNum(drink.getNum() - 1);   // 해당 상품 재고에서 1 차감
+                            break checkPoint;
+                        } else {
+                            System.out.println(drink.getItemName() + "은 품절입니다.");
+                            break checkPoint;
+                        }
                     }
                 }
+                System.out.println("입력하신 상품은 존재하지 않는 상품입니다.");
+                stop();
+            } else {
+                break checkPoint;
             }
         }
-
 
     }
 
