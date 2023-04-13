@@ -53,6 +53,7 @@ public class ItemViewer {
                     return;
                 default:
                     System.out.println("번호의 입력이 잘못되었습니다");
+                    stop();
                     break;
             }
 

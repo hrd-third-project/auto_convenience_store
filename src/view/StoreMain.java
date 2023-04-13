@@ -14,7 +14,7 @@ public class StoreMain {
 
     // 필드 =============================
 
-    private ManagerViewer mv;
+    private static ManagerViewer mv;
     private static Customer customer;
 
     public StoreMain() {
@@ -23,7 +23,7 @@ public class StoreMain {
     }
 
     // 메서드 =============================
-    public void start() {
+    public static void start() {
 
         System.out.println("\n\n 무인 편의점에 오신 것을 환영합니다!");
 
@@ -33,7 +33,7 @@ public class StoreMain {
 
 
     // 고객 / 관리자 입장
-    private void selectWho() {
+    private static void selectWho() {
 
         while (true) {
         System.out.println(" 1. 고객으로 입장하기 / 2. 관리자로 입장하기");
@@ -56,7 +56,7 @@ public class StoreMain {
 
 
     // 고객 정보 입력하기
-    private Customer customerView() {
+    private static Customer customerView() {
         customer = new Customer();
         System.out.println("\n환영합니다!");
         System.out.println("회원님의 정보를 입력해주세요!");
@@ -70,9 +70,9 @@ public class StoreMain {
         CustomerController customerctrl = new CustomerController();
         if (customerctrl.isExist(customer.getAge(), customer.getMoney())) {
             selectCustomerMenu(); // 고객 메뉴 선택
+        }else {
+            System.out.println("고객 정보를 정확히 입력해주세요.");
         }
-        System.out.println("고객 정보를 정확히 입력해주세요.");
-
 
         Utility.stop();
 
