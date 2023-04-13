@@ -28,7 +28,7 @@ public class ItemViewer {
             System.out.println("\n뒤로가시려면 '0'을 눌러주세요.");
 
 
-            String menuNum = input("\n >> ");
+            String menuNum = input(">> ");
             switch (menuNum) {
                 case "1":
                     ItemController.showSnack();
