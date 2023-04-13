@@ -25,7 +25,7 @@ public class ItemViewer {
                 System.out.print("\n4.주류       ");
             if (ItemController.isAllow(customer))
                 System.out.print("5.담배   ");
-            System.out.println("\n뒤로가시려면 '0'을 눌러주세요.");
+            System.out.println("\n  * 뒤로가시려면 '0'을 눌러주세요.");
 
 
             String menuNum = input(">> ");

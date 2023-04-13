@@ -57,20 +57,22 @@ public class StoreMain {
     // 고객 정보 입력하기
     private static Customer customerView() {
         customer = new Customer();
-        System.out.println("\n환영합니다!");
-        System.out.println("회원님의 정보를 입력해주세요!");
-        customer.setName(input(" - 이    름: "));
-        customer.setAge(Integer.parseInt(input(" - 나    이: ")));
-        customer.setPhoneNumber(input(" - 연 락 처: "));
-        System.out.println("    * 최소 충전 금액은 3,000원 입니다 ^0^");
-        customer.setChargeAmount(Integer.parseInt(input(" - 충전금액: ")));
+        System.out.println("\n  ★ 하나 무인 편의점에 오신것을 환영합니다! ★");
+        System.out.println("        회원님의 정보를 입력해주세요!       ");
+        System.out.println(" ────────────────────────────────────────");
+        customer.setName(input(" ┃ - 이    름: "));
+        customer.setAge(Integer.parseInt(input(" ┃ - 나    이: ")));
+        customer.setPhoneNumber(input(" ┃ - 연 락 처: "));
+        System.out.println(" ┃    * 최소 충전 금액은 3,000원 입니다 ^0^");
+        customer.setChargeAmount(Integer.parseInt(input(" ┃ - 충전금액: ")));
+        System.out.println(" ──────────────────────────────────────────");
 
 
         CustomerController customerctrl = new CustomerController();
         if (customerctrl.isExist(customer.getAge(), customer.getChargeAmount())) {
             selectCustomerMenu(); // 고객 메뉴 선택
         }else {
-            System.out.println("고객 정보를 정확히 입력해주세요.");
+            System.out.println("         고객 정보를 정확히 입력해주세요!");
         }
 
         Utility.stop();
