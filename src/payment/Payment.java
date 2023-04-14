@@ -36,22 +36,14 @@ public class Payment {
                 List<Item> cartList = CartController.getCartList();
                 List<String> itemNames = Customer.getItemNames();
 
-                //결제하기 구입목록창
-                System.out.println("\n\n ┌────────────────── 구입목록창 ──────────────────┓  ");
-                System.out.println(" │        상품명            단가         수량   │");
-                System.out.println("\n   │ ---------------------------------------------│");
-                //구매목록=> (상품명 / 단가/ 수량)
-                cartList.stream().forEach((Item n) -> System.out.println(n.getItemName() + "                         "
-                        + n.getPrice() + "          " + (10 - n.getNum())));
-
 
             //결제하기 구입목록창
-            System.out.println("\n ┌────────────────── 구입목록창 ──────────────────┓  ");
+            System.out.println("\n ┌────────────────── 구입목록창 ─────────────────┓  ");
             System.out.println(" │      상품명            단가         수량       │");
             System.out.println(" │ -------------------------------------------- │");
             //구매목록=> (상품명 / 단가/ 수량)
             cartList.stream().forEach((Item n) -> System.out.println(" │ \t\t"+n.getItemName()+"           "
-                                  +n.getPrice()+"          "+(10-n.getNum()+"\t        │")));
+                                  +n.getPrice()+"          "+(10-n.getNum()+"\t    │")));
 
             System.out.println(" │ -------------------------------------------- │");
             System.out.println(" │  \t\t\t[ 총 결제금액 : " + customer.getPayment()+ "원 ]\t\t\t│");

@@ -2,14 +2,12 @@ package customer;
 
 import item.Item;
 import item.ItemController;
-import item.Snack;
 import utility.Utility;
 import view.CartViewer;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 
 public class CartController {
@@ -33,7 +31,7 @@ public class CartController {
 
 
     // 카트에 품목을 지우는 메서드
-    public static List<Item> deleteItem() {
+    public static void deleteItem() {
         List<Item> cartList = CartController.getCartList();
 
         String delItem = Utility.input("\n * 삭제하고자 하는 상품명을 입력하세요! ^0^ \n   >> ");
@@ -77,7 +75,6 @@ public class CartController {
         }
 
 
-        return cartList;
     }
 
 

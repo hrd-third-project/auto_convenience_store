@@ -170,7 +170,7 @@ public class ItemController {
         System.out.println("──────────────────────────────────────");
         System.out.println(" * 담을 품목 이름을 입력하세요.");
         System.out.println(" * 뒤로가시려면 '0'을 눌러주세요.");
-        String inputItem = input("  >> ")       
+        String inputItem = input("  >> ");
 
             if (!inputItem.equals("0")) { // 뒤로가기 버튼(0) 을 누르지 않았으면 실행
                 for (Liquor liquor : liquorList) {
