@@ -34,22 +34,23 @@ public class Payment {
 
 
             //결제하기 구입목록창
-            System.out.println("\n\n ┌────────────────── 구입목록창 ──────────────────┓  ");
-            System.out.println(" │        상품명            단가         수량   │");
-            System.out.println("\n   │ ---------------------------------------------│");
+            System.out.println("\n ┌────────────────── 구입목록창 ──────────────────┓  ");
+            System.out.println(" │      상품명            단가         수량       │");
+            System.out.println(" │ -------------------------------------------- │");
             //구매목록=> (상품명 / 단가/ 수량)
-            cartList.stream().forEach((Item n) -> System.out.println(n.getItemName()+"                         "
-                                  +n.getPrice()+"          "+(10-n.getNum())));
+            cartList.stream().forEach((Item n) -> System.out.println(" │ \t\t"+n.getItemName()+"           "
+                                  +n.getPrice()+"          "+(10-n.getNum()+"\t        │")));
 
-            System.out.println("\n   │------------------------------------------- - │");
+            System.out.println(" │ -------------------------------------------- │");
 
 
             //Mycart 리스테 담겨있는 총금액 계산
             //총금액 계산창
 
 
-            System.out.println(" │\t\t\t  [ 총 결제금액 : " + customer.getPayment() + " ] \t\t\t  │");
-            System.out.println(" └─────────────────────────────────────────────────┘  ");
+            System.out.println(" │  \t\t\t[ 총 결제금액 : " + customer.getPayment()+ "원 ]\t\t\t│");
+
+            System.out.println(" └──────────────────────────────────────────────┘  ");
 
 
             System.out.println("감사합니다! 또 이용해주세요.");
