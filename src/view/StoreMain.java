@@ -24,8 +24,11 @@ public class StoreMain {
 
     // 메서드 =============================
     public static void start() {
+
+        // 카트리스트 품목리스트 객체 확인 TEST =====================================
         System.out.println("시작 "+CartController.getCartList());
         System.out.println(customer.getItemNames());
+        // 카트리스트 품목리스트 객체 확인 TEST =====================================
 
         System.out.println("\n\n 무인 편의점에 오신 것을 환영합니다!");
 
@@ -68,6 +71,9 @@ public class StoreMain {
         System.out.println("    * 최소 충전 금액은 3,000원 입니다 ^0^");
         customer.setChargeAmount(Integer.parseInt(input(" - 충전금액: ")));
 
+        // customer 객체 확인 TEST ==========================================
+        System.out.println("StoreMain customer = " + customer);
+        // customer 객체 확인 TEST ==========================================
 
         CustomerController customerctrl = new CustomerController();
 

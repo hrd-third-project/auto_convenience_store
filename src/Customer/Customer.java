@@ -8,10 +8,10 @@ import java.util.List;
 public class Customer {
 
     // 필드 ========================================
-    private String name;
-    private int age;
-    private String phoneNumber;
-    private int chargeAmount;
+    private static String name;
+    private static int age;
+    private static String phoneNumber;
+    private static int chargeAmount;
     private static List<String> itemNames;
     private int payment = 0;
 
@@ -83,9 +83,12 @@ public class Customer {
     public String toString() {
         return "Customer{" +
                 "name='" + name + '\'' +
-                ", birth=" + age +
+                ", age=" + age +
                 ", phoneNumber=" + phoneNumber +
-                ", money=" + chargeAmount +
+                ", chargeAmount=" + chargeAmount +
+                ", payment=" + payment +
+                ", itemNames=" + itemNames +
                 '}';
     }
+
 }
