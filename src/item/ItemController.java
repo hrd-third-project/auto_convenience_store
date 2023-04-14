@@ -20,18 +20,21 @@ public class ItemController {
     // 간식 리스트 불러오기 및 상품 선택창
     public static void showSnack() {
         List<Snack> snackList = Snack.getSnackList();
-
+        
         checkPoint:
         while (true) {
+          System.out.println("\n────────────────────────────────────────");
+          System.out.println("│\t\t제품명\t\t금액\t\t재고수량\t\t│");
+          System.out.println("────────────────────────────────────────");
             for (Snack snack : snackList) {
-                System.out.println(snack);
-            }
+              System.out.print("│\t\t");
+              System.out.println(snack+"│");
+         }
+            System.out.println("──────────────────────────────────────");
 
-            System.out.println("담을 품목 이름을 입력하세요.");
-            System.out.println("뒤로가시려면 '0'을 눌러주세요.");
-            String inputItem = input(">> ");
-
-
+        System.out.println(" * 담을 품목 이름을 입력하세요.");
+        System.out.println(" * 뒤로가시려면 '0'을 눌러주세요.");
+        String inputItem = input("  >> ");
             if (!inputItem.equals("0")) { // 뒤로가기 버튼(0) 을 누르지 않았으면 실행
                 for (Snack snack : snackList) {
 
@@ -61,16 +64,20 @@ public class ItemController {
     public static void showDrink() {
         List<Drink> drinkList = Drink.getDrinkList();
 
-        checkPoint:
-        while (true) {
 
-            for (Drink drink : drinkList) {
-                System.out.println(drink);  // 음료수 세부품목 리스트 출력
-            }
+        checkPoint:while (true) {
 
-            System.out.println("담을 품목 이름을 입력하세요.");
-            System.out.println("뒤로가시려면 '0'을 눌러주세요.");
-            String inputItem = input(">> ");
+            System.out.println("\n────────────────────────────────────────");
+            System.out.println("│\t\t제품명\t\t금액\t\t재고수량\t\t│");
+            System.out.println("────────────────────────────────────────");
+        for (Drink drink : drinkList) {
+            System.out.print("│\t\t");
+            System.out.println(drink+"│");  // 음료수 세부품목 리스트 출력
+        }
+            System.out.println("──────────────────────────────────────");
+            System.out.println(" * 담을 품목 이름을 입력하세요.");
+            System.out.println(" * 뒤로가시려면 '0'을 눌러주세요.");
+            String inputItem = input("  >> ");
 
 
             if (!inputItem.equals("0")) { // 뒤로가기 버튼(0) 을 누르지 않았으면 실행
@@ -101,15 +108,23 @@ public class ItemController {
     // 컵라면 리스트 불러오기 및 상품 선택창
     public static void showCupNoodle() {
         List<CupNoodle> cupNoodle = CupNoodle.getCupNoodleList();
-
+        
         checkPoint:
         while (true) {
-            for (CupNoodle noodle : cupNoodle) {
-                System.out.println(noodle);
-            }
-            System.out.println("담을 품목 이름을 입력하세요.");
-            System.out.println("뒤로가시려면 '0'을 눌러주세요.");
-            String inputItem = input(">> ");
+      
+        System.out.println("\n────────────────────────────────────────");
+        System.out.println("│\t\t제품명\t\t금액\t\t재고수량\t\t│");
+        System.out.println("────────────────────────────────────────");
+        for (CupNoodle noodle : cupNoodle) {
+            System.out.print("│\t\t");
+            System.out.println(noodle+"│");
+        }
+        System.out.println("──────────────────────────────────────");
+        System.out.println(" * 담을 품목 이름을 입력하세요.");
+        System.out.println(" * 뒤로가시려면 '0'을 눌러주세요.");
+        String inputItem = input("  >> ");
+        
+           
             if (!inputItem.equals("0")) { // 뒤로가기 버튼(0) 을 누르지 않았으면 실행
                 for (CupNoodle noodle : cupNoodle) {
 
@@ -140,16 +155,23 @@ public class ItemController {
     // 주류 리스트 불러오기 및 상품 선택창
     public static void showLiquor() {
         List<Liquor> liquorList = Liquor.getLiquorList();
-
+        
         checkPoint:
         while (true) {
-            for (Liquor liquor : liquorList) {
-                System.out.println(liquor);
-            }
+        
+     
+        System.out.println("\n────────────────────────────────────────");
+        System.out.println("│\t\t제품명\t\t금액\t\t재고수량\t\t│");
+        System.out.println("────────────────────────────────────────");
+        for (Liquor liquor : liquorList) {
+            System.out.print("│\t\t");
+            System.out.println(liquor+"│");
+        }
+        System.out.println("──────────────────────────────────────");
+        System.out.println(" * 담을 품목 이름을 입력하세요.");
+        System.out.println(" * 뒤로가시려면 '0'을 눌러주세요.");
+        String inputItem = input("  >> ")       
 
-            System.out.println("담을 품목 이름을 입력하세요.");
-            System.out.println("뒤로가시려면 '0'을 눌러주세요.");
-            String inputItem = input(">> ");
             if (!inputItem.equals("0")) { // 뒤로가기 버튼(0) 을 누르지 않았으면 실행
                 for (Liquor liquor : liquorList) {
                     if (inputItem.equals(liquor.getItemName())) {
@@ -176,16 +198,22 @@ public class ItemController {
     // 담배 리스트 불러오기 및 상품 선택창
     public static void showSmoke() {
         List<Smoke> smokeList = Smoke.getSmokeList();
-
+        
         checkPoint:
         while (true) {
-            for (Smoke smoke : smokeList) {
-                System.out.println(smoke);
-            }
 
-            System.out.println("담을 품목 이름을 입력하세요.");
-            System.out.println("뒤로가시려면 '0'을 눌러주세요.");
-            String inputItem = input(">> ");
+        System.out.println("\n────────────────────────────────────────");
+        System.out.println("│\t\t제품명\t\t금액\t\t재고수량\t\t│");
+        System.out.println("────────────────────────────────────────");
+        for (Smoke smoke : smokeList) {
+            System.out.print("│\t\t");
+            System.out.println(smoke+"│");
+        }
+        System.out.println("──────────────────────────────────────");
+        System.out.println(" * 담을 품목 이름을 입력하세요.");
+        System.out.println(" * 뒤로가시려면 '0'을 눌러주세요.");
+        String inputItem = input("  >> ");
+
             if (!inputItem.equals("0")) {   // 뒤로가기 버튼(0) 을 누르지 않았으면 실행
 
                 for (Smoke smoke : smokeList) {

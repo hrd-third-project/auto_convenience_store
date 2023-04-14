@@ -44,11 +44,20 @@ public class Payment {
                 cartList.stream().forEach((Item n) -> System.out.println(n.getItemName() + "                         "
                         + n.getPrice() + "          " + (10 - n.getNum())));
 
-                System.out.println("\n   │------------------------------------------- - │");
 
+            //결제하기 구입목록창
+            System.out.println("\n ┌────────────────── 구입목록창 ──────────────────┓  ");
+            System.out.println(" │      상품명            단가         수량       │");
+            System.out.println(" │ -------------------------------------------- │");
+            //구매목록=> (상품명 / 단가/ 수량)
+            cartList.stream().forEach((Item n) -> System.out.println(" │ \t\t"+n.getItemName()+"           "
+                                  +n.getPrice()+"          "+(10-n.getNum()+"\t        │")));
 
-                System.out.println(" │\t\t\t  [ 총 결제금액 : " + customer.getPayment() + " ] \t\t\t  │");
-                System.out.println(" └─────────────────────────────────────────────────┘  ");
+            System.out.println(" │ -------------------------------------------- │");
+            System.out.println(" │  \t\t\t[ 총 결제금액 : " + customer.getPayment()+ "원 ]\t\t\t│");
+
+            System.out.println(" └──────────────────────────────────────────────┘  ");
+               
 
 
                 // 품목명 리스트 담기 TEST ----------------------------------------------------------------------- start
@@ -57,6 +66,7 @@ public class Payment {
                 System.out.println("String 리스트 고객품목 : " + Customer.getItemNames());
                 System.out.println("최종 Customer(비워내기전) : " + customer);
                 // -------------------------------------------------------------------------------------------- end
+
 
                 // 고객 구매로그 리스트에 담기 -------------------------------------------
                 CustomerController.getCustomerLogList().add(customer);
