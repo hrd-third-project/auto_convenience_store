@@ -34,7 +34,6 @@ public class ManagerViewer {
             System.out.println("============= 관리자 화면 =============");
             System.out.println("0. 로그아웃\n"
                     + "1. 품목 재고 확인창\n"
-                    /*+ "2. 판매 수입 확인창\n"*/
                     + "2. 고객 구매 로그창");
             String num = input(">> ");
 

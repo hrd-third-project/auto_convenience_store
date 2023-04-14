@@ -12,16 +12,17 @@ public class Customer {
     private int age;
     private String phoneNumber;
     private int chargeAmount;
-    private static List<String> itemNames;
+    private List<String> itemNames;
     private int payment = 0;
 
 
     // 생성자 ========================================
     static {
-        itemNames = new ArrayList<>();
+
     }
 
     public Customer() {
+        itemNames = new ArrayList<>();
     }
 
     public Customer(String name, int age, String phoneNumber, int chargeAmount) {

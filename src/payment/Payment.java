@@ -4,6 +4,7 @@ import customer.CartController;
 import customer.Customer;
 import customer.CustomerController;
 import item.Item;
+import manage.PurchaseLog;
 import view.StoreMain;
 
 import java.util.List;
@@ -17,6 +18,7 @@ public class Payment {
     private CustomerController cmcl;
     private  CartController cc;
     private StoreMain sm;
+    private PurchaseLog pl;
     private int payment; //총금액
 
     public Payment() {
@@ -61,11 +63,14 @@ public class Payment {
             System.out.println(" │  \t\t\t[ 총 결제금액 : " + customer.getPayment()+ "원 ]\t\t\t│");
 
             System.out.println(" └──────────────────────────────────────────────┘  ");
-               
 
+                int leftAmount = customer.getChargeAmount() - customer.getPayment();
+                // 충전요금 -= 지불액 (충전요금에서 지불액만큼 차감 후 다시 저장)
+                customer.setChargeAmount(leftAmount);
 
                 // 품목명 리스트 담기 TEST ----------------------------------------------------------------------- start
                 cartList.stream().forEach((Item m) -> customer.getItemNames().add(m.getItemName()));
+
                 System.out.println("cartList 확인 : " + cartList);
                 System.out.println("String 리스트 고객품목 : " + customer.getItemNames());
                 System.out.println("최종 Customer(비워내기전) : " + customer);
@@ -77,21 +82,25 @@ public class Payment {
                 cmcl.getCustomerLogList().stream().forEach(n -> System.out.println("고객 구매로그 @@ : "+n));
                 // 고객 구매로그 리스트에 담기 -------------------------------------------
 
+                        // 고객 구매로그 리스트 관리인 페이지로 넘기기 ------------------------
+                                pl = new PurchaseLog();
+                                pl.setCustomerList(cmcl.getCustomerLogList());
 
-                // cartList & 품목리스트 비워주기 TEST ======================================
+                        // 고객 구매로그 리스트 관리인 페이지로 넘기기 ------------------------
+
+
+                // cartList 비워주기 TEST ======================================
                 cc.getCartList().stream().forEach(n -> System.out.println(n));
 
-                    // 카트리스트 & 품목이름리스트 비워주기 성공 ===============================
+                    // 카트리스트 비워주기 성공 ===============================
                     cc.getCartList().removeAll(cartList);
-                    customer.getItemNames().removeAll(itemNames);
-                    // 카트리스트 & 품목이름리스트 비워주기 성공 ===============================
+                    // 카트리스트 비워주기 성공 ===============================
 
                 System.out.println("결제후 cartList : " + cc.getCartList());
                 System.out.println("결제후 ItemNames : " + customer.getItemNames());
                 cmcl.getCustomerLogList().stream().forEach(n -> System.out.println("(람다)비워낸 후 고객 구매로그 @@ : "+n));
                 System.out.println("비워낸 후 고객 구매로그 @@ : "+cmcl.getCustomerLogList());
-                // cartList & 품목리스트 비워주기 TEST ======================================
-
+                // cartList 비워주기 TEST ======================================
                 System.out.println("감사합니다! 또 이용해주세요.");
                 stop();
                 sm.start();

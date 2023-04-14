@@ -54,7 +54,7 @@ public class ItemStock {
                     smoke.getSmokeList().stream().forEach((Item n) -> System.out.println(" │\t\t\t" + n.getItemName() + "\t\t\t\t" + n.getNum() + "\t\t\t│ "));
                     break;
                 default:
-                    System.out.println("잘못된 번호 입력입니다.");
+                    System.out.println(" \t\t\t잘못된 번호 입력입니다.");
                     break;
             }
             System.out.println(" │ ======================================== │");
