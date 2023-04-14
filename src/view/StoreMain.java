@@ -1,5 +1,6 @@
 package view;
 
+import customer.CartController;
 import customer.Customer;
 import customer.CustomerController;
 import manage.ManagerViewer;
@@ -23,6 +24,11 @@ public class StoreMain {
 
     // 메서드 =============================
     public static void start() {
+
+        // 카트리스트 품목리스트 객체 확인 TEST =====================================
+        System.out.println("시작 "+CartController.getCartList());
+        System.out.println(customer.getItemNames());
+        // 카트리스트 품목리스트 객체 확인 TEST =====================================
 
         System.out.println("\n\n 무인 편의점에 오신 것을 환영합니다!");
 
@@ -67,8 +73,12 @@ public class StoreMain {
         customer.setChargeAmount(Integer.parseInt(input(" ┃ - 충전금액: ")));
         System.out.println(" ──────────────────────────────────────────");
 
+        // customer 객체 확인 TEST ==========================================
+        System.out.println("StoreMain customer = " + customer);
+        // customer 객체 확인 TEST ==========================================
 
         CustomerController customerctrl = new CustomerController();
+
         if (customerctrl.isExist(customer.getAge(), customer.getChargeAmount())) {
             selectCustomerMenu(); // 고객 메뉴 선택
         }else {

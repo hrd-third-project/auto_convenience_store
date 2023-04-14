@@ -11,6 +11,13 @@ public class CustomerController {
         customerLogList = new ArrayList<>();
     }
 
+    public static List<Customer> getCustomerLogList() {
+        return customerLogList;
+    }
+
+    public static void setCustomerLogList(List<Customer> customerLogList) {
+        CustomerController.customerLogList = customerLogList;
+    }
 
     /**
      * 고객 입장 유효성 검사

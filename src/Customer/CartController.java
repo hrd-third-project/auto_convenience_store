@@ -23,7 +23,7 @@ public class CartController {
     public ItemController ic;
     private Cart mycart;
 
-    public static void setCartlist(Item item) {
+    public static void setCartList(Item item) {
         cartlist = cartlist;
     }
 
@@ -67,7 +67,9 @@ public class CartController {
                 System.out.println(item.getItemName() + "을/를 장바구니에서 삭제하였습니다.");
             }
 
+
             // 장바구니 목록 재호출
+
             CartViewer.myCart();
 
         } else {
