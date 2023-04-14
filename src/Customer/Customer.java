@@ -8,26 +8,19 @@ import java.util.List;
 public class Customer {
 
     // 필드 ========================================
-    private static String name;
-    private static int age;
-    private static String phoneNumber;
-    private static int chargeAmount;
+    private String name;
+    private int age;
+    private String phoneNumber;
+    private int chargeAmount;
     private static List<String> itemNames;
     private int payment = 0;
 
-    public static List<String> getItemNames() {
-        return itemNames;
-    }
 
-    public static void setItemNames(List<String> itemNames) {
-        Customer.itemNames = itemNames;
-    }
-
+    // 생성자 ========================================
     static {
         itemNames = new ArrayList<>();
     }
 
-    // 생성자 ========================================
     public Customer() {
     }
 
@@ -78,6 +71,10 @@ public class Customer {
     public void setPayment(int payment) {
         this.payment = payment;
     }
+    public List<String> getItemNames() {
+        return itemNames;
+    }
+
 
     @Override
     public String toString() {

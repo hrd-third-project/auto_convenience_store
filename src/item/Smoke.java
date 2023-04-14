@@ -7,10 +7,9 @@ import java.util.List;
 public class Smoke extends Item {
 
     private static List<Smoke> smokeList;
-    private static final int accessAge = 19;
+    private final int accessAge = 19;
 
-
-    static  {
+    static {
         smokeList = new ArrayList<>(Arrays.asList(
                 new Smoke("말보르", 4500, 10),
                 new Smoke("에쎄수", 4500, 10),
@@ -19,25 +18,22 @@ public class Smoke extends Item {
                 new Smoke("필라멘트", 4500, 10)
         ));
     }
-
-
-    public Smoke() {
-    }
+    public Smoke() {}
 
     public Smoke(String itemName, int price, int num) {
         super(itemName, price, num);
     }
 
 
-    public static int getAccessAge() {
+    public int getAccessAge() {
         return accessAge;
     }
 
-    public static void setSmokeList(List<Smoke> smokeList) {
-        Smoke.smokeList = smokeList;
+    public void setSmokeList(List<Smoke> smokeList) {
+        smokeList = smokeList;
     }
 
-     public static List<Smoke> getSmokeList() {
+     public List<Smoke> getSmokeList() {
         return smokeList;
     }
 

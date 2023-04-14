@@ -6,19 +6,16 @@ public class ManagerViewer {
 
     // 필드 ==============================
     private Manager mg;
-//    private IncomeCheck ic;   // 구매로그창에 병합시킴
     private ItemStock is;
     private PurchaseLog pl; // 구매로그 + 판매수입확인
 
     public ManagerViewer() {
-        mg = new Manager();
         is = new ItemStock();
-//        ic = new IncomeCheck();
         pl = new PurchaseLog();
     }
 
     public void managerLogin() {
-
+        mg = new Manager();
         String inputId = input("아이디 : ");
         String inputPwd = input("비밀번호 : ");
 
@@ -28,7 +25,6 @@ public class ManagerViewer {
         } else {
             System.out.println("잘못된 로그인 정보입니다.");
         }
-
 
 
     }

@@ -13,14 +13,25 @@ import static utility.Utility.*;
 
 public class ItemController {
 
+    private Snack snack;
+    private Drink drink;
+    private CupNoodle noodle;
+    private Liquor liquor;
+    private  Smoke smoke;
+    private CartController cc;
+
+    public ItemController() {
+        cc = new CartController();
+    }
+
 
 //    private CartController cc;
 
 
     // 간식 리스트 불러오기 및 상품 선택창
-    public static void showSnack() {
-        List<Snack> snackList = Snack.getSnackList();
-        
+    public void showSnack() {
+        snack = new Snack();
+        List<Snack> snackList = snack.getSnackList();
         checkPoint:
         while (true) {
           System.out.println("\n────────────────────────────────────────");
@@ -40,7 +51,7 @@ public class ItemController {
 
                     if (inputItem.equals(snack.getItemName())) {
                         if (snack.getNum() > 0) {    // 해당 상품의 개수가 0이 아닌지 확인
-                            CartController.getCartList().add(snack);    // 장바구니에 해당 상품 1 추가
+                            cc.getCartList().add(snack);    // 장바구니에 해당 상품 1 추가
                             System.out.println(snack.getItemName() + "을 장바구니에 담았습니다.");
                             snack.setNum(snack.getNum() - 1);   // 해당 상품 재고에서 1 차감
                             stop();
@@ -61,9 +72,9 @@ public class ItemController {
 
 
     // 음료 리스트 불러오기 및 상품 선택창
-    public static void showDrink() {
-        List<Drink> drinkList = Drink.getDrinkList();
-
+    public void showDrink() {
+        drink = new Drink();
+        List<Drink> drinkList = drink.getDrinkList();
 
         checkPoint:while (true) {
 
@@ -85,7 +96,7 @@ public class ItemController {
 
                     if (inputItem.equals(drink.getItemName())) {
                         if (drink.getNum() > 0) {    // 해당 상품의 개수가 0이 아닌지 확인
-                            CartController.getCartList().add(drink);    // 장바구니에 해당 상품 1 추가
+                            cc.getCartList().add(drink);    // 장바구니에 해당 상품 1 추가
                             System.out.println(drink.getItemName() + "을 장바구니에 담았습니다.");
                             drink.setNum(drink.getNum() - 1);   // 해당 상품 재고에서 1 차감
                             stop();
@@ -106,9 +117,10 @@ public class ItemController {
     }
 
     // 컵라면 리스트 불러오기 및 상품 선택창
-    public static void showCupNoodle() {
-        List<CupNoodle> cupNoodle = CupNoodle.getCupNoodleList();
-        
+    public void showCupNoodle() {
+        noodle = new CupNoodle();
+        List<CupNoodle> cupNoodle = noodle.getCupNoodleList();
+
         checkPoint:
         while (true) {
       
@@ -130,7 +142,7 @@ public class ItemController {
 
                     if (inputItem.equals(noodle.getItemName())) {
                         if (noodle.getNum() > 0) {    // 해당 상품의 개수가 0이 아닌지 확인
-                            CartController.getCartList().add(noodle);    // 장바구니에 해당 상품 1 추가
+                            cc.getCartList().add(noodle);    // 장바구니에 해당 상품 1 추가
                             System.out.println(noodle.getItemName() + "을 장바구니에 담았습니다.");
                             noodle.setNum(noodle.getNum() - 1);   // 해당 상품 재고에서 1 차감
                             stop();
@@ -153,9 +165,10 @@ public class ItemController {
 
 
     // 주류 리스트 불러오기 및 상품 선택창
-    public static void showLiquor() {
-        List<Liquor> liquorList = Liquor.getLiquorList();
-        
+    public void showLiquor() {
+        liquor = new Liquor();
+        List<Liquor> liquorList = liquor.getLiquorList();
+
         checkPoint:
         while (true) {
         
@@ -176,7 +189,7 @@ public class ItemController {
                 for (Liquor liquor : liquorList) {
                     if (inputItem.equals(liquor.getItemName())) {
                         if (liquor.getNum() > 0) {    // 해당 상품의 개수가 0이 아닌지 확인
-                            CartController.getCartList().add(liquor);    // 장바구니에 해당 상품 1 추가
+                            cc.getCartList().add(liquor);    // 장바구니에 해당 상품 1 추가
                             System.out.println(liquor.getItemName() + "을 장바구니에 담았습니다.");
                             liquor.setNum(liquor.getNum() - 1);   // 해당 상품 재고에서 1 차감
                             stop();
@@ -196,9 +209,10 @@ public class ItemController {
     }
 
     // 담배 리스트 불러오기 및 상품 선택창
-    public static void showSmoke() {
-        List<Smoke> smokeList = Smoke.getSmokeList();
-        
+    public void showSmoke() {
+        smoke = new Smoke();
+        List<Smoke> smokeList = smoke.getSmokeList();
+
         checkPoint:
         while (true) {
 
@@ -219,7 +233,7 @@ public class ItemController {
                 for (Smoke smoke : smokeList) {
                     if (inputItem.equals(smoke.getItemName())) { // 입력 받은 상품이 존재하는지 확인
                         if (smoke.getNum() > 0) {    // 해당 상품의 개수가 0이 아닌지 확인
-                            CartController.getCartList().add(smoke);    // 장바구니에 해당 상품 1 추가
+                            cc.getCartList().add(smoke);    // 장바구니에 해당 상품 1 추가
                             System.out.println(smoke.getItemName() + "을 장바구니에 담았습니다.");
                             smoke.setNum(smoke.getNum() - 1);   // 해당 상품 재고에서 1 차감
                             stop();

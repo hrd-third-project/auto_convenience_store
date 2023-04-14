@@ -13,17 +13,29 @@ import static utility.Utility.stop;
 public class Payment {
 
 
-    private static Customer customer;
-    private static int payment; //총금액
+//    private Customer customer;
+    private CustomerController cmcl;
+    private  CartController cc;
+    private StoreMain sm;
+    private int payment; //총금액
 
+    public Payment() {
+        cc = new CartController();
+        cmcl = new CustomerController();
+    }
 
-    public static void payCheck() {
-        customer = new Customer();
+    public void payCheck(Customer customer) {
+        sm = new StoreMain();
         //선택한 품목이 1개이상인가
-        if (CartController.getCartList().size() >= 1) {
+        if (cc.getCartList().size() >= 1) {
+            // TEST ===================================
+            System.out.println(cc.getCartList());
+            System.out.println(customer.getItemNames());
+            System.out.println(customer.getChargeAmount() + "  " + customer.getAge());
+            // TEST ===================================
 
             // cartList에 담겨있는 품목 지불금액
-            for (Item item : CartController.getCartList()) {
+            for (Item item : cc.getCartList()) {
                 customer.setPayment(customer.getPayment() + item.getPrice());
             }
 
@@ -33,8 +45,8 @@ public class Payment {
             // 총 지불해야할 금액 TEST=============
             if (customer.getChargeAmount() >= customer.getPayment()) {
 
-                List<Item> cartList = CartController.getCartList();
-                List<String> itemNames = Customer.getItemNames();
+                List<Item> cartList = cc.getCartList();
+                List<String> itemNames = customer.getItemNames();
 
 
             //결제하기 구입목록창
@@ -53,40 +65,40 @@ public class Payment {
 
 
                 // 품목명 리스트 담기 TEST ----------------------------------------------------------------------- start
-                cartList.stream().forEach((Item m) -> Customer.getItemNames().add(m.getItemName()));
+                cartList.stream().forEach((Item m) -> customer.getItemNames().add(m.getItemName()));
                 System.out.println("cartList 확인 : " + cartList);
-                System.out.println("String 리스트 고객품목 : " + Customer.getItemNames());
+                System.out.println("String 리스트 고객품목 : " + customer.getItemNames());
                 System.out.println("최종 Customer(비워내기전) : " + customer);
                 // -------------------------------------------------------------------------------------------- end
 
 
                 // 고객 구매로그 리스트에 담기 -------------------------------------------
-                CustomerController.getCustomerLogList().add(customer);
-                CustomerController.getCustomerLogList().stream().forEach(n -> System.out.println("고객 구매로그 @@ : "+n));
+                cmcl.getCustomerLogList().add(customer);
+                cmcl.getCustomerLogList().stream().forEach(n -> System.out.println("고객 구매로그 @@ : "+n));
                 // 고객 구매로그 리스트에 담기 -------------------------------------------
 
 
                 // cartList & 품목리스트 비워주기 TEST ======================================
-                CartController.getCartList().stream().forEach(n -> System.out.println(n));
+                cc.getCartList().stream().forEach(n -> System.out.println(n));
 
                     // 카트리스트 & 품목이름리스트 비워주기 성공 ===============================
-                    CartController.getCartList().removeAll(cartList);
-                    Customer.getItemNames().removeAll(itemNames);
+                    cc.getCartList().removeAll(cartList);
+                    customer.getItemNames().removeAll(itemNames);
                     // 카트리스트 & 품목이름리스트 비워주기 성공 ===============================
 
-                System.out.println("결제후 cartList : " + CartController.getCartList());
-                System.out.println("결제후 ItemNames : " + Customer.getItemNames());
-                CustomerController.getCustomerLogList().stream().forEach(n -> System.out.println("(람다)비워낸 후 고객 구매로그 @@ : "+n));
-                System.out.println("비워낸 후 고객 구매로그 @@ : "+CustomerController.getCustomerLogList());
+                System.out.println("결제후 cartList : " + cc.getCartList());
+                System.out.println("결제후 ItemNames : " + customer.getItemNames());
+                cmcl.getCustomerLogList().stream().forEach(n -> System.out.println("(람다)비워낸 후 고객 구매로그 @@ : "+n));
+                System.out.println("비워낸 후 고객 구매로그 @@ : "+cmcl.getCustomerLogList());
                 // cartList & 품목리스트 비워주기 TEST ======================================
 
                 System.out.println("감사합니다! 또 이용해주세요.");
                 stop();
-                StoreMain.start();
+                sm.start();
             } else {
                 System.out.println("충전 금액이 부족합니다. 충전금액 범위의 품목을 선택하세요.");
                 stop();
-                StoreMain.selectCustomerMenu();
+                sm.selectCustomerMenu();
             }
 
 
@@ -98,7 +110,7 @@ public class Payment {
         } else {
             System.out.println("상품을 선택해주세요");
             stop();
-            StoreMain.selectCustomerMenu();
+            sm.selectCustomerMenu();
         }
 
     }

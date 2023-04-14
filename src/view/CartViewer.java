@@ -14,16 +14,21 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class CartViewer {
-    public static CartController cc;
-    private static Cart cart;
+    public CartController cc;
+    private Cart cart;
     public ItemController ic;
 
+    public CartViewer() {
+        cc = new CartController();
+        cart = new Cart();
+        ic = new ItemController();
+    }
 
     // 장바구니 목록 조회
-    public static void myCart() {
+    public void myCart() {
 
         // 장바구니 유무 확인
-        List<Item> cartList = CartController.getCartList();
+        List<Item> cartList = cc.getCartList();
         boolean flag = cartList.stream()
                 .anyMatch(item -> item.getNum() > 0);
 
@@ -32,7 +37,7 @@ public class CartViewer {
             System.out.println(" │      상품명        단가       수량      합계       │");
             System.out.println(" │ ----------------------------------------------- │");
 
-            List<Item> itemList = CartController.getCartList();
+            List<Item> itemList = cc.getCartList();
 
             boolean itemCount = itemList.stream()
                     .anyMatch(item -> item.getNum() == 0);
@@ -69,7 +74,7 @@ public class CartViewer {
             String delItem = Utility.input("  >> ");
             switch (delItem) {
                 case "1":
-                    CartController.deleteItem();
+                    cc.deleteItem();
                     break;
                 case "0":
                     return;

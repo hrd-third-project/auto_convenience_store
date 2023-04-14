@@ -7,16 +7,20 @@ public class CustomerController {
 
     private static List<Customer> customerLogList;
 
+    public CustomerController() {
+    }
     static {
         customerLogList = new ArrayList<>();
     }
+    //    public CustomerController() {
+//    }
 
-    public static List<Customer> getCustomerLogList() {
+    public List<Customer> getCustomerLogList() {
         return customerLogList;
     }
 
-    public static void setCustomerLogList(List<Customer> customerLogList) {
-        CustomerController.customerLogList = customerLogList;
+    public void setCustomerLogList(List<Customer> customerLogList) {
+        customerLogList = customerLogList;
     }
 
     /**

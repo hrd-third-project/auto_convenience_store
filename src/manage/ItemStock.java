@@ -9,6 +9,12 @@ import static utility.Utility.*;
 
 public class ItemStock {
 
+    private Snack snack;
+    private Drink drink;
+    private CupNoodle noodle;
+    private Liquor liquor;
+    private  Smoke smoke;
+
     public ItemStock() {
 
     }
@@ -28,19 +34,24 @@ public class ItemStock {
 
             switch (num) {
                 case "1":
-                    Snack.getSnackList().stream().forEach((Item n) -> System.out.println(" │\t\t\t" + n.getItemName() + "\t\t\t\t" + n.getNum() + "\t\t\t│ "));
+                    snack = new Snack();
+                    snack.getSnackList().stream().forEach((Item n) -> System.out.println(" │\t\t\t" + n.getItemName() + "\t\t\t\t" + n.getNum() + "\t\t\t│ "));
                     break;
                 case "2":
-                    Drink.getDrinkList().stream().forEach((Item n) -> System.out.println(" │\t\t\t" + n.getItemName() + "\t\t\t\t" + n.getNum() + "\t\t\t│ "));
+                    drink = new Drink();
+                    drink.getDrinkList().stream().forEach((Item n) -> System.out.println(" │\t\t\t" + n.getItemName() + "\t\t\t\t" + n.getNum() + "\t\t\t│ "));
                     break;
                 case "3":
-                    CupNoodle.getCupNoodleList().stream().forEach((Item n) -> System.out.println(" │\t\t\t" + n.getItemName() + "\t\t\t\t" + n.getNum() + "\t\t\t│ "));
+                    noodle = new CupNoodle();
+                    noodle.getCupNoodleList().stream().forEach((Item n) -> System.out.println(" │\t\t\t" + n.getItemName() + "\t\t\t\t" + n.getNum() + "\t\t\t│ "));
                     break;
                 case "4":
-                    Liquor.getLiquorList().stream().forEach((Item n) -> System.out.println(" │\t\t\t" + n.getItemName() + "\t\t\t\t" + n.getNum() + "\t\t\t│ "));
+                    liquor = new Liquor();
+                    liquor.getLiquorList().stream().forEach((Item n) -> System.out.println(" │\t\t\t" + n.getItemName() + "\t\t\t\t" + n.getNum() + "\t\t\t│ "));
                     break;
                 case "5":
-                    Smoke.getSmokeList().stream().forEach((Item n) -> System.out.println(" │\t\t\t" + n.getItemName() + "\t\t\t\t" + n.getNum() + "\t\t\t│ "));
+                    smoke = new Smoke();
+                    smoke.getSmokeList().stream().forEach((Item n) -> System.out.println(" │\t\t\t" + n.getItemName() + "\t\t\t\t" + n.getNum() + "\t\t\t│ "));
                     break;
                 default:
                     System.out.println("잘못된 번호 입력입니다.");

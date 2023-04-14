@@ -17,6 +17,7 @@ public class CupNoodle extends Item {
                 new CupNoodle("참깨라면", 1300, 10)
         ));
     }
+    public CupNoodle() {}
 
 
 
@@ -25,7 +26,7 @@ public class CupNoodle extends Item {
     }
 
 
-    public static List<CupNoodle> getCupNoodleList() {
+    public List<CupNoodle> getCupNoodleList() {
         return cupNoodleList;
     }
 
