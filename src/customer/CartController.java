@@ -47,8 +47,6 @@ public class CartController {
                     .filter(item -> item.getItemName().equals(delItem))
                     .limit(1)
                     .collect(Collectors.toList());
-            System.out.println("removeItem = " + removeItem);
-
 
             int delItemIndex = -1;
 

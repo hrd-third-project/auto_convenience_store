@@ -24,10 +24,6 @@ public class ItemController {
         cc = new CartController();
     }
 
-
-//    private CartController cc;
-
-
     // 간식 리스트 불러오기 및 상품 선택창
     public void showSnack() {
         snack = new Snack();

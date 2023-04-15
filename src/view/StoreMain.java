@@ -34,15 +34,8 @@ public class StoreMain {
     // 메서드 =============================
     public void start() {
 
-        // 카트리스트 품목리스트 객체 확인 TEST =====================================
-        System.out.println("시작 "+cc.getCartList());
-        System.out.println(customer.getItemNames());
-        // 카트리스트 품목리스트 객체 확인 TEST =====================================
-
-        System.out.println("\n\n 무인 편의점에 오신 것을 환영합니다!");
-
+        System.out.println("\n  ★ 중앙 무인 편의점에 오신것을 환영합니다! ★");
         selectWho(); // 고객 / 관리자 입장
-
     }
 
 
@@ -72,7 +65,7 @@ public class StoreMain {
     // 고객 정보 입력하기
     private Customer customerView() {
         customer = new Customer();
-        System.out.println("\n  ★ 하나 무인 편의점에 오신것을 환영합니다! ★");
+        System.out.println("\n  ★ 중앙 무인 편의점에 오신것을 환영합니다! ★");
         System.out.println("        회원님의 정보를 입력해주세요!       ");
         System.out.println(" ────────────────────────────────────────");
         customer.setName(input(" ┃ - 이    름: "));
@@ -82,9 +75,6 @@ public class StoreMain {
         customer.setChargeAmount(Integer.parseInt(input(" ┃ - 충전금액: ")));
         System.out.println(" ──────────────────────────────────────────");
 
-        // customer 객체 확인 TEST ==========================================
-        System.out.println("StoreMain customer = " + customer);
-        // customer 객체 확인 TEST ==========================================
 
         CustomerController customerctrl = new CustomerController();
 

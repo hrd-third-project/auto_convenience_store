@@ -12,8 +12,7 @@ public class CustomerController {
     static {
         customerLogList = new ArrayList<>();
     }
-    //    public CustomerController() {
-//    }
+
 
     public List<Customer> getCustomerLogList() {
         return customerLogList;
@@ -33,11 +32,6 @@ public class CustomerController {
         if (age != 0 && money >= 3000) return true;
         return false;
     }
-
-
-
-
-
 
 
 }

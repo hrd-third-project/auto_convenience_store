@@ -44,14 +44,14 @@ public class CartViewer {
 
 
             if (!itemCount) {
-                List<Item> distincList = itemList.stream()
+                List<Item> distincList = cartList.stream()  //itemList -> cartList
                         .distinct()
                         .collect(Collectors.toList());
                 for (Item item : distincList) {
                     System.out.print(" │ \t\t" + item.getItemName() + "\t\t");
                     System.out.print(item.getPrice() + "\t\t");
-                    System.out.print(10 - item.getNum() + "\t\t");
-                    System.out.println(item.getPrice() * (10 - item.getNum()) + "\t   │");
+                    System.out.print(10 -item.getNum() + "\t\t"); //
+                    System.out.println(item.getPrice() * (10 - item.getNum()) + "\t   │");   //
                 }
             }
 
