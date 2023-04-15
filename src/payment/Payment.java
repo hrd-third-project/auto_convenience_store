@@ -44,7 +44,7 @@ public class Payment {
                 System.out.println("\n ┌────────────────── 구입목록창 ─────────────────┓  ");
                 System.out.println(" │      상품명            단가         수량       │");
                 System.out.println(" │ -------------------------------------------- │");
-                //구매목록=> (상품명 / 단가/ 수량)
+                //구매목록 => (상품명 / 단가/ 수량)
                 cartList.stream().distinct().forEach((Item n) -> System.out.println(" │ \t\t" + n.getItemName() + "           "
                         + n.getPrice() + "          " + (10 - n.getNum() + "\t        │")));
 
