@@ -6,19 +6,16 @@ public class ManagerViewer {
 
     // 필드 ==============================
     private Manager mg;
-    private IncomeCheck ic;
     private ItemStock is;
-    private PurchaseLog pl;
+    private PurchaseLog pl; // 구매로그 + 판매수입확인
 
     public ManagerViewer() {
-        mg = new Manager();
         is = new ItemStock();
-        ic = new IncomeCheck();
         pl = new PurchaseLog();
     }
 
     public void managerLogin() {
-
+        mg = new Manager();
         String inputId = input("아이디 : ");
         String inputPwd = input("비밀번호 : ");
 
@@ -30,7 +27,6 @@ public class ManagerViewer {
         }
 
 
-
     }
     private void managerView() {
 
@@ -38,8 +34,7 @@ public class ManagerViewer {
             System.out.println("============= 관리자 화면 =============");
             System.out.println("0. 로그아웃\n"
                     + "1. 품목 재고 확인창\n"
-                    + "2. 판매 수입 확인창\n"
-                    + "3. 고객 구매 로그창");
+                    + "2. 고객 구매 로그창");
             String num = input(">> ");
 
             switch (num) {
@@ -49,9 +44,10 @@ public class ManagerViewer {
                     is.showItemMenu();
                     break;
                 case "2":
-                    ic.showIncome();
+                    pl.showPurchaseLog();
                     break;
-                case "3":
+                default:
+                    System.out.println("올바른 번호를 입력하세요.");
                     break;
 
             }

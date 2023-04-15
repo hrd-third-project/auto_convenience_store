@@ -7,10 +7,20 @@ public class CustomerController {
 
     private static List<Customer> customerLogList;
 
+    public CustomerController() {
+    }
     static {
         customerLogList = new ArrayList<>();
     }
 
+
+    public List<Customer> getCustomerLogList() {
+        return customerLogList;
+    }
+
+    public void setCustomerLogList(List<Customer> customerLogList) {
+        customerLogList = customerLogList;
+    }
 
     /**
      * 고객 입장 유효성 검사
@@ -22,11 +32,6 @@ public class CustomerController {
         if (age != 0 && money >= 3000) return true;
         return false;
     }
-
-
-
-
-
 
 
 }

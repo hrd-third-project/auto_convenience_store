@@ -1,5 +1,10 @@
 package customer;
 
+import item.Item;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Customer {
 
     // 필드 ========================================
@@ -7,12 +12,17 @@ public class Customer {
     private int age;
     private String phoneNumber;
     private int chargeAmount;
+    private List<String> itemNames;
     private int payment = 0;
 
 
-
     // 생성자 ========================================
+    static {
+
+    }
+
     public Customer() {
+        itemNames = new ArrayList<>();
     }
 
     public Customer(String name, int age, String phoneNumber, int chargeAmount) {
@@ -62,14 +72,21 @@ public class Customer {
     public void setPayment(int payment) {
         this.payment = payment;
     }
+    public List<String> getItemNames() {
+        return itemNames;
+    }
+
 
     @Override
     public String toString() {
         return "Customer{" +
                 "name='" + name + '\'' +
-                ", birth=" + age +
+                ", age=" + age +
                 ", phoneNumber=" + phoneNumber +
-                ", money=" + chargeAmount +
+                ", chargeAmount=" + chargeAmount +
+                ", payment=" + payment +
+                ", itemNames=" + itemNames +
                 '}';
     }
+
 }

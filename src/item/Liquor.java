@@ -7,20 +7,18 @@ import java.util.List;
 public class Liquor extends Item {
 
     private static List<Liquor> liquorList;
-    private static final int accessAge = 19;
+    private final int accessAge = 19;
 
     static {
         liquorList = new ArrayList<>(Arrays.asList(
                 new Liquor("참이슬", 1800, 10),
-                new Liquor("처음처럼", 1800, 10),
                 new Liquor("보드카", 45000, 10),
+                new Liquor("막걸리", 3500, 10),
                 new Liquor("하이네켄", 1800, 10),
-                new Liquor("막걸리", 3500, 10)
+                new Liquor("처음처럼", 1800, 10)
         ));
     }
-
-    public Liquor() {
-    }
+    public Liquor() {}
 
     //매개변수 전달
     public Liquor(String itemName, int price, int num) {
@@ -33,8 +31,8 @@ public class Liquor extends Item {
         return accessAge;
     }
 
-    public static void setLiquorList(List<Liquor> liquorList) {
-        Liquor.liquorList = liquorList;
+    public void setLiquorList(List<Liquor> liquorList) {
+        liquorList = liquorList;
     }
 
 
@@ -44,7 +42,7 @@ public class Liquor extends Item {
     }
 
 
-    public static List<Liquor> getLiquorList() {
+    public List<Liquor> getLiquorList() {
         return liquorList;
 
 

@@ -31,7 +31,7 @@ public class Cart {
         this.count = count;
     }
 
-    public static int getTotal() {
+    public  int getTotal() {
         return total;
     }
 

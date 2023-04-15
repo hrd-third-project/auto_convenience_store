@@ -10,12 +10,13 @@ import static utility.Utility.*;
 
 public class ItemViewer {
 
-    private static ItemController ic;
+    private ItemController ic;
 
+    public ItemViewer() {
+        ic = new ItemController();
+    }
 
-
-
-    public static void showItems(Customer customer) {
+    public void showItems(Customer customer) {
         while (true) {
             System.out.println("\n=========== 상품 선택 ============");
             System.out.print("1.과자류     ");
@@ -25,29 +26,29 @@ public class ItemViewer {
                 System.out.print("\n4.주류       ");
             if (ItemController.isAllow(customer))
                 System.out.print("5.담배   ");
-            System.out.println("\n뒤로가시려면 '0'을 눌러주세요.");
+            System.out.println("\n  * 뒤로가시려면 '0'을 눌러주세요.");
 
 
             String menuNum = input(">> ");
             switch (menuNum) {
                 case "1":
-                    ItemController.showSnack();
+                    ic.showSnack();
                     break;
                 case "2":
-                    ItemController.showDrink();
+                    ic.showDrink();
                     break;
                 case "3":
-                    ItemController.showCupNoodle();
+                    ic.showCupNoodle();
                     break;
                 case "4":
                     if (!ItemController.isAllow(customer))
                         continue;
-                    ItemController.showLiquor();
+                    ic.showLiquor();
                     break;
                 case "5":
                     if (!ItemController.isAllow(customer))
                         continue;
-                    ItemController.showSmoke();
+                    ic.showSmoke();
                     break;
                 case "0":
                     return;

@@ -2,6 +2,7 @@ package view;
 
 import customer.Cart;
 import customer.CartController;
+import customer.Customer;
 import item.Item;
 import item.ItemController;
 import payment.Payment;
@@ -14,16 +15,21 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class CartViewer {
-    public static CartController cc;
-    private static Cart cart;
+    public CartController cc;
+    private Cart cart;
     public ItemController ic;
 
+    public CartViewer() {
+        cc = new CartController();
+        cart = new Cart();
+        ic = new ItemController();
+    }
 
     // 장바구니 목록 조회
-    public static void myCart() {
+    public void myCart() {
 
         // 장바구니 유무 확인
-        List<Item> cartList = CartController.getCartList();
+        List<Item> cartList = cc.getCartList();
         boolean flag = cartList.stream()
                 .anyMatch(item -> item.getNum() > 0);
 
@@ -32,21 +38,21 @@ public class CartViewer {
             System.out.println(" │      상품명        단가       수량      합계       │");
             System.out.println(" │ ----------------------------------------------- │");
 
-            List<Item> itemList = CartController.getCartList();
+            List<Item> itemList = cc.getCartList();
 
             boolean itemCount = itemList.stream()
                     .anyMatch(item -> item.getNum() == 0);
 
 
             if (!itemCount) {
-                List<Item> distincList = itemList.stream()
+                List<Item> distincList = cartList.stream()  //itemList -> cartList
                         .distinct()
                         .collect(Collectors.toList());
                 for (Item item : distincList) {
                     System.out.print(" │ \t\t" + item.getItemName() + "\t\t");
                     System.out.print(item.getPrice() + "\t\t");
-                    System.out.print(10 - item.getNum() + "\t\t");
-                    System.out.println(item.getPrice() * (10 - item.getNum()) + "\t   │");
+                    System.out.print(10 -item.getNum() + "\t\t"); //
+                    System.out.println(item.getPrice() * (10 - item.getNum()) + "\t   │");   //
                 }
             }
 
@@ -59,7 +65,7 @@ public class CartViewer {
                 sum += myCartItem.getPrice();
             }
 
-            System.out.println(" │  \t\t\t[ 장바구니 총 금액 : " + formatter.format(sum) + "원 ]\t\t\t  │");
+            System.out.println(" │  \t\t[ 장바구니 총 금액 : " + formatter.format(sum) + "원 ]\t\t   │");
 
             System.out.println(" └─────────────────────────────────────────────────┘  ");
 
@@ -69,7 +75,7 @@ public class CartViewer {
             String delItem = Utility.input("  >> ");
             switch (delItem) {
                 case "1":
-                    CartController.deleteItem();
+                    cc.deleteItem();
                     break;
                 case "0":
                     return;

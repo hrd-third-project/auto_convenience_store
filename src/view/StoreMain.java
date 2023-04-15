@@ -1,5 +1,6 @@
 package view;
 
+import customer.CartController;
 import customer.Customer;
 import customer.CustomerController;
 import manage.ManagerViewer;
@@ -13,26 +14,33 @@ public class StoreMain {
 
     // 필드 =============================
 
-    private static ManagerViewer mv;
-    private static Customer customer;
+    private ManagerViewer mv;
+    private Customer customer;
+    private CartController cc;
+    private ItemViewer iv;
+    private CartViewer cv;
+    private Payment p;
+
 
     public StoreMain() {
-
+        customer = new Customer();
         mv = new ManagerViewer();
+        cc = new CartController();
+        iv = new ItemViewer();
+        cv = new CartViewer();
+        p = new Payment();
     }
 
     // 메서드 =============================
-    public static void start() {
+    public void start() {
 
-        System.out.println("\n\n 무인 편의점에 오신 것을 환영합니다!");
-
+        System.out.println("\n  ★ 중앙 무인 편의점에 오신것을 환영합니다! ★");
         selectWho(); // 고객 / 관리자 입장
-
     }
 
 
     // 고객 / 관리자 입장
-    private static void selectWho() {
+    private void selectWho() {
 
         while (true) {
         System.out.println(" 1. 고객으로 입장하기 / 2. 관리자로 입장하기");
@@ -55,22 +63,25 @@ public class StoreMain {
 
 
     // 고객 정보 입력하기
-    private static Customer customerView() {
+    private Customer customerView() {
         customer = new Customer();
-        System.out.println("\n환영합니다!");
-        System.out.println("회원님의 정보를 입력해주세요!");
-        customer.setName(input(" - 이    름: "));
-        customer.setAge(Integer.parseInt(input(" - 나    이: ")));
-        customer.setPhoneNumber(input(" - 연 락 처: "));
-        System.out.println("    * 최소 충전 금액은 3,000원 입니다 ^0^");
-        customer.setChargeAmount(Integer.parseInt(input(" - 충전금액: ")));
+        System.out.println("\n  ★ 중앙 무인 편의점에 오신것을 환영합니다! ★");
+        System.out.println("        회원님의 정보를 입력해주세요!       ");
+        System.out.println(" ────────────────────────────────────────");
+        customer.setName(input(" ┃ - 이    름: "));
+        customer.setAge(Integer.parseInt(input(" ┃ - 나    이: ")));
+        customer.setPhoneNumber(input(" ┃ - 연 락 처: "));
+        System.out.println(" ┃    * 최소 충전 금액은 3,000원 입니다 ^0^");
+        customer.setChargeAmount(Integer.parseInt(input(" ┃ - 충전금액: ")));
+        System.out.println(" ──────────────────────────────────────────");
 
 
         CustomerController customerctrl = new CustomerController();
+
         if (customerctrl.isExist(customer.getAge(), customer.getChargeAmount())) {
             selectCustomerMenu(); // 고객 메뉴 선택
         }else {
-            System.out.println("고객 정보를 정확히 입력해주세요.");
+            System.out.println("         고객 정보를 정확히 입력해주세요!");
         }
 
         Utility.stop();
@@ -79,7 +90,7 @@ public class StoreMain {
     }
 
 
-    public static void selectCustomerMenu() { // 고객 메뉴 선택 메서드
+    public void selectCustomerMenu() { // 고객 메뉴 선택 메서드
 
         while (true) {
             System.out.println("\n┌────── ★무인편의점★ ──────┐ ");
@@ -91,19 +102,17 @@ public class StoreMain {
 
             switch (menuNum) {
                 case "1":
-                    ItemViewer.showItems(customer); // 1. 상품선택
+                    iv.showItems(customer); // 1. 상품선택
                     break;
 
                 case "2":
-                    myCart(); // 2. 장바구니
+                    cv.myCart(); // 2. 장바구니
                     break;
 
                 case "3":
-                    Payment.payCheck();
+                    p.payCheck(customer);
                     // 3. 결제하기
-                    return;
-//                    break;
-
+                    break;
                 default:
                     break;
 
