@@ -2,6 +2,7 @@ package view;
 
 import customer.Cart;
 import customer.CartController;
+import customer.Customer;
 import item.Item;
 import item.ItemController;
 import payment.Payment;

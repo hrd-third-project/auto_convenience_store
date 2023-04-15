@@ -13,6 +13,7 @@ import static utility.Utility.stop;
 
 public class Payment {
 
+    private Customer customer;
     private CustomerController cmcl;
     private CartController cc;
     private StoreMain sm;
@@ -25,6 +26,7 @@ public class Payment {
     }
 
     public void payCheck(Customer customer) {
+        this.customer = customer;
         sm = new StoreMain();
         //선택한 품목이 1개이상인가
         if (cc.getCartList().size() >= 1) {
@@ -33,7 +35,10 @@ public class Payment {
             for (Item item : cc.getCartList()) {
                 customer.setPayment(customer.getPayment() + item.getPrice());
             }
-
+            // 충전금액 부족 버그 TEST =========================================
+            System.out.println("처음 지불액 확인 : " + customer.getPayment());
+            System.out.println("처음 충전요금 확인 : " + customer.getChargeAmount());
+            // 충전금액 부족 버그 TEST =========================================
             if (customer.getChargeAmount() >= customer.getPayment()) {
 
                 List<Item> cartList = cc.getCartList();
@@ -82,9 +87,13 @@ public class Payment {
                 stop();
                 sm.start();
             } else {
+                customer.setPayment(0); // 위쪽에서 setPayment에 넣어둔 처음값부터 계속 중첩으로 값이 쌓이게 되는 것을 되돌려주는 역할
+                // 충전금액 부족 버그 TEST =========================================
+                System.out.println("지불액 초과 확인 : " + customer.getPayment());
+                System.out.println("처음 충전요금 확인 : " + customer.getChargeAmount());
+                // 충전금액 부족 버그 TEST =========================================
                 System.out.println("충전 금액이 부족합니다. 충전금액 범위의 품목을 선택하세요.");
-                stop();
-                sm.selectCustomerMenu();
+//                sm.selectCustomerMenu();  --> customer 객체를 초기화시켜 NULL로 만듦 // 사용금지 (비용초과로 결제가 막힌 후 장바구니에서 덜어내고 결제를 시도해도 결제가 막히는 버그 수정완료)
             }
 
             //cartList에  아무것도 담겨있지 않은 경우 -> 상품선택창으로 이동
@@ -92,7 +101,8 @@ public class Payment {
         } else {
             System.out.println("상품을 선택해주세요");
             stop();
-            sm.selectCustomerMenu();
+//                sm.selectCustomerMenu();  --> customer 객체를 초기화시켜 NULL로 만듦 // 사용금지 (비용초과로 결제가 막힌 후 장바구니에서 덜어내고 결제를 시도해도 결제가 막히는 버그 수정완료)
+
         }
 
     }

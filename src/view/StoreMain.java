@@ -112,9 +112,7 @@ public class StoreMain {
                 case "3":
                     p.payCheck(customer);
                     // 3. 결제하기
-                    return;
-//                    break;
-
+                    break;
                 default:
                     break;
 

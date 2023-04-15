@@ -17,7 +17,7 @@ public class ItemController {
     private Drink drink;
     private CupNoodle noodle;
     private Liquor liquor;
-    private  Smoke smoke;
+    private Smoke smoke;
     private CartController cc;
 
     public ItemController() {
@@ -30,18 +30,18 @@ public class ItemController {
         List<Snack> snackList = snack.getSnackList();
         checkPoint:
         while (true) {
-          System.out.println("\n────────────────────────────────────────");
-          System.out.println("│\t\t제품명\t\t금액\t\t재고수량\t\t│");
-          System.out.println("────────────────────────────────────────");
+            System.out.println("\n────────────────────────────────────────");
+            System.out.println("│\t\t제품명\t\t금액\t\t재고수량\t\t│");
+            System.out.println("────────────────────────────────────────");
             for (Snack snack : snackList) {
-              System.out.print("│\t\t");
-              System.out.println(snack+"│");
-         }
+                System.out.print("│\t\t");
+                System.out.println(snack + "│");
+            }
             System.out.println("──────────────────────────────────────");
 
-        System.out.println(" * 담을 품목 이름을 입력하세요.");
-        System.out.println(" * 뒤로가시려면 '0'을 눌러주세요.");
-        String inputItem = input("  >> ");
+            System.out.println(" * 담을 품목 이름을 입력하세요.");
+            System.out.println(" * 뒤로가시려면 '0'을 눌러주세요.");
+            String inputItem = input("  >> ");
             if (!inputItem.equals("0")) { // 뒤로가기 버튼(0) 을 누르지 않았으면 실행
                 for (Snack snack : snackList) {
 
@@ -72,15 +72,16 @@ public class ItemController {
         drink = new Drink();
         List<Drink> drinkList = drink.getDrinkList();
 
-        checkPoint:while (true) {
+        checkPoint:
+        while (true) {
 
             System.out.println("\n────────────────────────────────────────");
             System.out.println("│\t\t제품명\t\t금액\t\t재고수량\t\t│");
             System.out.println("────────────────────────────────────────");
-        for (Drink drink : drinkList) {
-            System.out.print("│\t\t");
-            System.out.println(drink+"│");  // 음료수 세부품목 리스트 출력
-        }
+            for (Drink drink : drinkList) {
+                System.out.print("│\t\t");
+                System.out.println(drink + "│");  // 음료수 세부품목 리스트 출력
+            }
             System.out.println("──────────────────────────────────────");
             System.out.println(" * 담을 품목 이름을 입력하세요.");
             System.out.println(" * 뒤로가시려면 '0'을 눌러주세요.");
@@ -119,20 +120,20 @@ public class ItemController {
 
         checkPoint:
         while (true) {
-      
-        System.out.println("\n────────────────────────────────────────");
-        System.out.println("│\t\t제품명\t\t금액\t\t재고수량\t\t│");
-        System.out.println("────────────────────────────────────────");
-        for (CupNoodle noodle : cupNoodle) {
-            System.out.print("│\t\t");
-            System.out.println(noodle+"│");
-        }
-        System.out.println("──────────────────────────────────────");
-        System.out.println(" * 담을 품목 이름을 입력하세요.");
-        System.out.println(" * 뒤로가시려면 '0'을 눌러주세요.");
-        String inputItem = input("  >> ");
-        
-           
+
+            System.out.println("\n────────────────────────────────────────");
+            System.out.println("│\t\t제품명\t\t금액\t\t재고수량\t\t│");
+            System.out.println("────────────────────────────────────────");
+            for (CupNoodle noodle : cupNoodle) {
+                System.out.print("│\t\t");
+                System.out.println(noodle + "│");
+            }
+            System.out.println("──────────────────────────────────────");
+            System.out.println(" * 담을 품목 이름을 입력하세요.");
+            System.out.println(" * 뒤로가시려면 '0'을 눌러주세요.");
+            String inputItem = input("  >> ");
+
+
             if (!inputItem.equals("0")) { // 뒤로가기 버튼(0) 을 누르지 않았으면 실행
                 for (CupNoodle noodle : cupNoodle) {
 
@@ -167,19 +168,19 @@ public class ItemController {
 
         checkPoint:
         while (true) {
-        
-     
-        System.out.println("\n────────────────────────────────────────");
-        System.out.println("│\t\t제품명\t\t금액\t\t재고수량\t\t│");
-        System.out.println("────────────────────────────────────────");
-        for (Liquor liquor : liquorList) {
-            System.out.print("│\t\t");
-            System.out.println(liquor+"│");
-        }
-        System.out.println("──────────────────────────────────────");
-        System.out.println(" * 담을 품목 이름을 입력하세요.");
-        System.out.println(" * 뒤로가시려면 '0'을 눌러주세요.");
-        String inputItem = input("  >> ");
+
+
+            System.out.println("\n────────────────────────────────────────");
+            System.out.println("│\t\t제품명\t\t금액\t\t재고수량\t\t│");
+            System.out.println("────────────────────────────────────────");
+            for (Liquor liquor : liquorList) {
+                System.out.print("│\t\t");
+                System.out.println(liquor + "│");
+            }
+            System.out.println("──────────────────────────────────────");
+            System.out.println(" * 담을 품목 이름을 입력하세요.");
+            System.out.println(" * 뒤로가시려면 '0'을 눌러주세요.");
+            String inputItem = input("  >> ");
 
             if (!inputItem.equals("0")) { // 뒤로가기 버튼(0) 을 누르지 않았으면 실행
                 for (Liquor liquor : liquorList) {
@@ -212,17 +213,17 @@ public class ItemController {
         checkPoint:
         while (true) {
 
-        System.out.println("\n────────────────────────────────────────");
-        System.out.println("│\t\t제품명\t\t금액\t\t재고수량\t\t│");
-        System.out.println("────────────────────────────────────────");
-        for (Smoke smoke : smokeList) {
-            System.out.print("│\t\t");
-            System.out.println(smoke+"│");
-        }
-        System.out.println("──────────────────────────────────────");
-        System.out.println(" * 담을 품목 이름을 입력하세요.");
-        System.out.println(" * 뒤로가시려면 '0'을 눌러주세요.");
-        String inputItem = input("  >> ");
+            System.out.println("\n────────────────────────────────────────");
+            System.out.println("│\t\t제품명\t\t금액\t\t재고수량\t\t│");
+            System.out.println("────────────────────────────────────────");
+            for (Smoke smoke : smokeList) {
+                System.out.print("│\t\t");
+                System.out.println(smoke + "│");
+            }
+            System.out.println("──────────────────────────────────────");
+            System.out.println(" * 담을 품목 이름을 입력하세요.");
+            System.out.println(" * 뒤로가시려면 '0'을 눌러주세요.");
+            String inputItem = input("  >> ");
 
             if (!inputItem.equals("0")) {   // 뒤로가기 버튼(0) 을 누르지 않았으면 실행
 
